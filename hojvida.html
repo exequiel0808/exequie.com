@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Hoja de Vida</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+
+<body>
+<h1>Hoja de Vida</h1>
+    <form action="procesar.php" method="POST">
+        <table>
+            <tr>
+                <th>Campo</th>
+                <th>Dato</th>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" name="nombre" required></td>
+            </tr>
+            <tr>
+                <td>Apellido:</td>
+                <td><input type="text" name="apellido" required></td>
+            </tr>
+            <tr>
+                <td>Correo Electrónico:</td>
+                <td><input type="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td>Teléfono:</td>
+                <td><input type="text" name="telefono" required></td>
+            </tr>
+            <tr>
+                <td>Experiencia:</td>
+                <td><textarea name="experiencia" required></textarea></td>
+            </tr>
+        </table>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
