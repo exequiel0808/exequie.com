@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glam Nails Studio — Arte en tus manos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Glam <span>Nails</span></a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#cita">Citas</a></li>
+  </ul>
+  <a href="#cita" class="nav-cta">Reservar Cita</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-bg-shape2"></div>
+  <div class="hero-petals">
+    <span class="petal">🌸</span>
+    <span class="petal">✨</span>
+    <span class="petal">💅</span>
+    <span class="petal">🌷</span>
+    <span class="petal">⭐</span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Studio de Uñas Premium</div>
+    <h1>Arte<br>en tus <em>manos</em>,<br><span class="gold">belleza</span> real.</h1>
+    <p class="hero-sub">Diseños exclusivos en uñas acrílicas, gel y nail art. Cada detalle, una obra de arte pensada solo para ti.</p>
+    <div class="hero-btns">
+      <a href="#cita" class="btn-primary">Reservar Cita</a>
+      <a href="#catalogo" class="btn-secondary">Ver Catálogo</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num" id="statClients">500+</div>
+      <div class="stat-label">Clientas felices</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="statYears">3+</div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="statQuality">100%</div>
+      <div class="stat-label">Productos premium</div>
+    </div>
+  </div>
+  <div class="hero-img-area">
+    <div class="nail-showcase">
+      <div class="nail-card-mini"><span class="nail-emoji">💅</span><p>Acrílicas</p></div>
+      <div class="nail-card-mini"><span class="nail-emoji">✨</span><p>Gel</p></div>
+      <div class="nail-card-mini"><span class="nail-emoji">🌸</span><p>Nail Art</p></div>
+      <div class="nail-card-mini"><span class="nail-emoji">💎</span><p>Diseños</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="services-header reveal">
+    <span class="section-label">Lo que ofrecemos</span>
+    <h2 class="section-title">Nuestros <em>Servicios</em></h2>
+    <p class="section-sub">Cada servicio es realizado con los mejores materiales y toda nuestra dedicación.</p>
+  </div>
+  <div class="services-grid" id="servicesGrid">
+    <!-- Renderizado por app.js -->
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalogo">
+  <div class="catalog-header reveal">
+    <div>
+      <span class="section-label">Inspírate</span>
+      <h2 class="section-title">Catálogo de <em>Diseños</em></h2>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="filterCatalog(this,'todos')">Todos</button>
+      <button class="filter-btn" onclick="filterCatalog(this,'acrilicas')">Acrílicas</button>
+      <button class="filter-btn" onclick="filterCatalog(this,'gel')">Gel</button>
+      <button class="filter-btn" onclick="filterCatalog(this,'nailart')">Nail Art</button>
+    </div>
+  </div>
+  <div class="catalog-grid" id="catalogGrid">
+    <!-- Renderizado por app.js -->
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+  <div class="gallery-header reveal">
+    <span class="section-label">Nuestro trabajo</span>
+    <h2 class="section-title">Galería de <em>Resultados</em></h2>
+    <p class="section-sub">Trabajos reales de nuestras clientas. Cada foto, un antes y después real.</p>
+  </div>
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Renderizado por app.js -->
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="cita">
+  <div class="booking-wrap">
+    <div class="booking-info reveal">
+      <span class="section-label">Agenda tu visita</span>
+      <h2 class="section-title">Reserva tu <em>Cita</em></h2>
+      <p class="section-sub">Elige tu servicio, el día y la hora. Te confirmaremos tu cita por WhatsApp.</p>
+      <div class="booking-perks">
+        <div class="perk">
+          <div class="perk-icon">📅</div>
+          <p><strong>Confirmación por WhatsApp</strong>Recibirás confirmación en menos de 1 hora.</p>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">⏰</div>
+          <p><strong>Puntualidad garantizada</strong>Respetamos tu tiempo. Cada cita dura lo que debe.</p>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">💎</div>
+          <p><strong>Productos premium</strong>Solo usamos marcas certificadas y seguras para ti.</p>
+        </div>
+      </div>
+    </div>
+    <div class="booking-form-wrap reveal">
+      <h3>✦ Agendar Cita</h3>
+      <div id="bookingForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="bookName" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" id="bookPhone" placeholder="+503 0000-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Servicio</label>
+          <select id="bookService">
+            <option value="">Elige un servicio...</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fecha</label>
+            <input type="date" id="bookDate">
+          </div>
+          <div class="form-group">
+            <label>Hora</label>
+            <select id="bookTime">
+              <option value="">Hora...</option>
+              <option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
+              <option>12:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+              <option>4:00 PM</option><option>5:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Notas / inspiración (opcional)</label>
+          <textarea id="bookNotes" placeholder="Describe el diseño que quieres..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitBooking()">💅 Confirmar Reserva</button>
+      </div>
+      <div class="form-success" id="bookingSuccess">
+        <div class="check">🌸</div>
+        <h4>¡Cita registrada!</h4>
+        <p>Te confirmaremos por WhatsApp muy pronto. ¡Gracias por confiar en nosotras!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Glam <span>Nails</span></div>
+  <p class="footer-tagline">Arte en tus manos, belleza real.</p>
+  <div class="footer-links">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#galeria">Galería</a>
+    <a href="#cita">Agendar Cita</a>
+  </div>
+  <p class="footer-copy">© 2025 Glam Nails Studio. Todos los derechos reservados.</p>
+  <a href="admin.html" class="footer-admin-link">⚙ Admin</a>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/50300000000" target="_blank" class="wa-btn" id="waBtn" title="Contáctanos por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
