@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glam Nails Studio — Arte en tus manos</title>
+<title>WS Nails Studio — Arte en tus manos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --rose: #c2185b; --rose-light: #e91e8c; --blush: #fce4ec;
-  --blush-mid: #f8bbd0; --gold: #c9a96e; --cream: #fff8f8;
+  --rose: #c2185b; --rose-light: #e91e8c; --blush: #fdf5f0;
+  --blush-mid: #f0e0d8; --gold: #c9a96e; --cream: #fdfaf7;
   --dark: #1a0a0f; --text: #3d1a2a; --muted: #9e7a8a;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -34,7 +34,7 @@ section{padding:100px 60px;}
 .reveal{opacity:0;transform:translateY(30px);transition:all .7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 /* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff0f5 0%,#fce4ec 40%,#fff8f8 100%);}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#fdfaf7 0%,#fdf5f0 40%,#fdfaf7 100%);}
 .hero-bg-shape{position:absolute;right:-100px;top:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(194,24,91,.08),transparent 70%);border-radius:50%;}
 .hero-bg-shape2{position:absolute;left:-150px;bottom:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,169,110,.1),transparent 70%);border-radius:50%;}
 .petal{position:absolute;font-size:24px;opacity:.15;animation:floatPetal 8s ease-in-out infinite;}
@@ -113,7 +113,7 @@ section{padding:100px 60px;}
 .gallery-placeholder{font-size:30px;color:rgba(194,24,91,.3);}
 .gallery-empty-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(194,24,91,.5);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
 /* BOOKING */
-.booking{background:linear-gradient(135deg,#fff0f5,#fce4ec);position:relative;overflow:hidden;}
+.booking{background:linear-gradient(135deg,#fdfaf7,#fdf5f0);position:relative;overflow:hidden;}
 .booking-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto;position:relative;z-index:1;}
 .booking-perks{margin-top:40px;display:flex;flex-direction:column;gap:16px;}
 .perk{display:flex;align-items:center;gap:14px;}
@@ -178,7 +178,7 @@ footer{background:var(--dark);color:#fff;padding:60px;text-align:center;}
 <div class="cursor-ring" id="cursorRing"></div>
 
 <nav id="navbar">
-  <a href="#" class="nav-logo">Glam <span>Nails</span></a>
+  <a href="#" class="nav-logo">WS <span>Nails</span></a>
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#catalogo">Catálogo</a></li>
@@ -270,7 +270,7 @@ footer{background:var(--dark);color:#fff;padding:60px;text-align:center;}
       <div id="bookingForm">
         <div class="form-row">
           <div class="form-group"><label>Nombre</label><input type="text" id="bookName" placeholder="Tu nombre"></div>
-          <div class="form-group"><label>Teléfono</label><input type="tel" id="bookPhone" placeholder="+503 0000-0000"></div>
+          <div class="form-group"><label>Teléfono</label><input type="tel" id="bookPhone" placeholder="0000-0000" value="+503 "></div>
         </div>
         <div class="form-group"><label>Servicio</label><select id="bookService"><option value="">Elige un servicio...</option></select></div>
         <div class="form-row">
@@ -278,9 +278,11 @@ footer{background:var(--dark);color:#fff;padding:60px;text-align:center;}
           <div class="form-group"><label>Hora</label>
             <select id="bookTime">
               <option value="">Hora...</option>
-              <option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
-              <option>12:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
-              <option>4:00 PM</option><option>5:00 PM</option>
+              <option>7:00 AM</option><option>8:00 AM</option><option>9:00 AM</option>
+              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+              <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+              <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
+              <option>7:00 PM</option>
             </select>
           </div>
         </div>
@@ -297,17 +299,17 @@ footer{background:var(--dark);color:#fff;padding:60px;text-align:center;}
 </section>
 
 <footer>
-  <div class="footer-logo">Glam <span>Nails</span></div>
+  <div class="footer-logo">WS <span>Nails</span></div>
   <p class="footer-tagline">Arte en tus manos, belleza real.</p>
   <div class="footer-links">
     <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a>
     <a href="#catalogo">Catálogo</a><a href="#galeria">Galería</a><a href="#cita">Citas</a>
   </div>
-  <p class="footer-copy">© 2025 Glam Nails Studio. Todos los derechos reservados.</p>
+  <p class="footer-copy">© 2025 WS Nails Studio. Todos los derechos reservados.</p>
   <a href="admin.html" class="footer-admin-link">⚙ Admin</a>
 </footer>
 
-<a href="https://wa.me/50300000000" target="_blank" class="wa-btn" id="waBtn">
+<a href="https://wa.me/50372349174" target="_blank" class="wa-btn" id="waBtn">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -333,7 +335,7 @@ const DB = {
   },
   getAppointments(){ return this.get('glamAppointments',[]); },
   getBusiness(){
-    return this.get('glamBusiness',{name:'Glam Nails Studio',phone:'50300000000',tagline:'Arte en tus manos, belleza real.',stats:{clients:'500+',years:'3+',quality:'100%'}});
+    return this.get('glamBusiness',{name:'WS Nails Studio',phone:'50372349174',tagline:'Arte en tus manos, belleza real.',stats:{clients:'500+',years:'3+',quality:'100%'}});
   },
   addAppointment(a){
     const list=this.getAppointments();
@@ -341,14 +343,7 @@ const DB = {
     this.set('glamAppointments',list);
   },
   getDefaultCatalog(){
-    return [
-      {id:-1,name:'French Glam',type:'acrilicas',desc:'Clásico french con detalles dorados',img:null,emoji:'✨',price:'45'},
-      {id:-2,name:'Rosa Pastel',type:'gel',desc:'Degradado rosa suave y luminoso',img:null,emoji:'🌸',price:'38'},
-      {id:-3,name:'Floral Dreams',type:'nailart',desc:'Flores pintadas a mano',img:null,emoji:'🌺',price:'25'},
-      {id:-4,name:'Marble Luxe',type:'acrilicas',desc:'Efecto mármol en blanco y dorado',img:null,emoji:'💎',price:'50'},
-      {id:-5,name:'Glitter Night',type:'gel',desc:'Destellos brillantes',img:null,emoji:'🌟',price:'42'},
-      {id:-6,name:'Geometric Art',type:'nailart',desc:'Líneas geométricas minimalistas',img:null,emoji:'🎨',price:'30'},
-    ];
+    return [];
   },
 };
 
