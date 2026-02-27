@@ -6,15 +6,177 @@
 <title>Glam Nails Studio — Arte en tus manos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<style>
+:root {
+  --rose: #c2185b; --rose-light: #e91e8c; --blush: #fce4ec;
+  --blush-mid: #f8bbd0; --gold: #c9a96e; --cream: #fff8f8;
+  --dark: #1a0a0f; --text: #3d1a2a; --muted: #9e7a8a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:10px;height:10px;background:var(--rose);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:32px;height:32px;border:1.5px solid var(--rose);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:all .15s ease;opacity:.6;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;}
+nav.scrolled{background:rgba(255,248,248,.95);backdrop-filter:blur(10px);padding:14px 60px;box-shadow:0 2px 30px rgba(194,24,91,.08);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--rose);letter-spacing:1px;text-decoration:none;}
+.nav-logo span{color:var(--gold);font-style:italic;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--text);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:color .3s;}
+.nav-links a:hover{color:var(--rose);}
+.nav-cta{background:var(--rose);color:#fff;padding:10px 24px;border-radius:30px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s;}
+.nav-cta:hover{background:var(--rose-light);transform:translateY(-2px);}
+section{padding:100px 60px;}
+.section-label{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:12px;display:block;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,54px);font-weight:300;color:var(--dark);line-height:1.2;margin-bottom:16px;}
+.section-title em{color:var(--rose);font-style:italic;}
+.section-sub{color:var(--muted);font-size:16px;font-weight:300;max-width:560px;}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff0f5 0%,#fce4ec 40%,#fff8f8 100%);}
+.hero-bg-shape{position:absolute;right:-100px;top:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(194,24,91,.08),transparent 70%);border-radius:50%;}
+.hero-bg-shape2{position:absolute;left:-150px;bottom:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,169,110,.1),transparent 70%);border-radius:50%;}
+.petal{position:absolute;font-size:24px;opacity:.15;animation:floatPetal 8s ease-in-out infinite;}
+.petal:nth-child(1){left:5%;top:20%;}
+.petal:nth-child(2){left:85%;top:15%;animation-delay:1.5s;font-size:18px;}
+.petal:nth-child(3){left:15%;top:70%;animation-delay:3s;font-size:30px;}
+.petal:nth-child(4){left:75%;top:60%;animation-delay:4.5s;font-size:20px;}
+.petal:nth-child(5){left:50%;top:10%;animation-delay:2s;font-size:16px;}
+@keyframes floatPetal{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-20px) rotate(15deg);}}
+.hero-content{position:relative;z-index:2;padding:0 60px;max-width:680px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(194,24,91,.08);border:1px solid rgba(194,24,91,.2);color:var(--rose);padding:7px 18px;border-radius:30px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:28px;animation:fadeUp .8s ease both;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,88px);line-height:1.05;font-weight:300;color:var(--dark);margin-bottom:20px;animation:fadeUp .8s .1s ease both;}
+.hero h1 em{color:var(--rose);font-style:italic;font-weight:600;}
+.hero h1 .gold{color:var(--gold);}
+.hero-sub{font-size:17px;color:var(--muted);font-weight:300;line-height:1.7;max-width:480px;margin-bottom:40px;animation:fadeUp .8s .2s ease both;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .8s .3s ease both;}
+.btn-primary{background:linear-gradient(135deg,var(--rose),var(--rose-light));color:#fff;padding:16px 36px;border-radius:40px;text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;transition:all .3s;box-shadow:0 8px 30px rgba(194,24,91,.3);display:inline-block;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(194,24,91,.4);}
+.btn-secondary{border:1.5px solid var(--rose);color:var(--rose);padding:16px 36px;border-radius:40px;text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;transition:all .3s;display:inline-block;}
+.btn-secondary:hover{background:var(--blush);transform:translateY(-3px);}
+.hero-stats{position:absolute;right:60px;bottom:80px;display:flex;gap:40px;animation:fadeUp .8s .4s ease both;}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--rose);line-height:1;}
+.stat-label{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.hero-img-area{position:absolute;right:0;top:0;height:100%;width:45%;background:linear-gradient(135deg,rgba(248,187,208,.4),rgba(252,228,236,.6));clip-path:polygon(15% 0%,100% 0%,100% 100%,0% 100%);display:flex;align-items:center;justify-content:center;}
+.nail-showcase{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:60px 40px 60px 80px;}
+.nail-card-mini{background:#fff;border-radius:16px;padding:16px;text-align:center;box-shadow:0 4px 20px rgba(194,24,91,.1);transition:transform .3s;}
+.nail-card-mini:hover{transform:translateY(-4px);}
+.nail-emoji{font-size:36px;display:block;margin-bottom:8px;}
+.nail-card-mini p{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+/* SERVICES */
+.services{background:#fff;}
+.services-header{text-align:center;margin-bottom:70px;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1100px;margin:0 auto;}
+.service-card{background:var(--cream);border-radius:24px;padding:40px 32px;text-align:center;position:relative;overflow:hidden;transition:all .4s;border:1px solid transparent;}
+.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--blush),var(--cream));opacity:0;transition:opacity .4s;}
+.service-card:hover{transform:translateY(-8px);border-color:rgba(194,24,91,.15);box-shadow:0 20px 60px rgba(194,24,91,.12);}
+.service-card:hover::before{opacity:1;}
+.service-icon{font-size:48px;margin-bottom:20px;display:block;position:relative;z-index:1;}
+.service-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--dark);margin-bottom:12px;position:relative;z-index:1;}
+.service-card p{color:var(--muted);font-size:14px;line-height:1.7;position:relative;z-index:1;margin-bottom:20px;}
+.service-price{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--rose);position:relative;z-index:1;}
+.service-price span{font-size:14px;font-family:'Jost',sans-serif;font-weight:400;color:var(--muted);}
+.service-features{list-style:none;margin-top:16px;position:relative;z-index:1;}
+.service-features li{font-size:13px;color:var(--muted);padding:5px 0;border-bottom:1px solid rgba(194,24,91,.07);}
+.service-features li::before{content:'✦';color:var(--rose);margin-right:8px;font-size:10px;}
+/* CATALOG */
+.catalog{background:var(--cream);}
+.catalog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:50px;flex-wrap:wrap;gap:20px;}
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;}
+.filter-btn{padding:9px 22px;border-radius:30px;border:1.5px solid var(--blush-mid);background:transparent;color:var(--muted);font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Jost',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:var(--rose);border-color:var(--rose);color:#fff;}
+.catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;max-width:1200px;margin:0 auto;}
+.catalog-item{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(194,24,91,.06);transition:all .4s;}
+.catalog-item:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(194,24,91,.15);}
+.catalog-img{height:220px;background:linear-gradient(135deg,var(--blush),var(--blush-mid));display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden;}
+.catalog-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.catalog-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(194,24,91,.7),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:20px;}
+.catalog-item:hover .catalog-overlay{opacity:1;}
+.catalog-overlay-text{color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;}
+.catalog-info{padding:18px 20px;}
+.catalog-info h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--dark);margin-bottom:4px;}
+.catalog-info p{font-size:13px;color:var(--muted);}
+.catalog-tag{display:inline-block;background:var(--blush);color:var(--rose);font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:20px;margin-top:6px;}
+.catalog-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--rose);margin-top:8px;}
+/* GALLERY */
+.gallery{background:#fff;}
+.gallery-header{text-align:center;margin-bottom:60px;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px;max-width:1200px;margin:0 auto;}
+.gallery-item{border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--blush),var(--blush-mid));display:flex;align-items:center;justify-content:center;font-size:40px;position:relative;transition:transform .3s;cursor:pointer;}
+.gallery-item:hover{transform:scale(1.02);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.gallery-item.tall{grid-row:span 2;}
+.gallery-item.wide{grid-column:span 2;}
+.gallery-placeholder{font-size:30px;color:rgba(194,24,91,.3);}
+.gallery-empty-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(194,24,91,.5);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
+/* BOOKING */
+.booking{background:linear-gradient(135deg,#fff0f5,#fce4ec);position:relative;overflow:hidden;}
+.booking-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.booking-perks{margin-top:40px;display:flex;flex-direction:column;gap:16px;}
+.perk{display:flex;align-items:center;gap:14px;}
+.perk-icon{width:44px;height:44px;background:rgba(194,24,91,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.perk p{font-size:14px;color:var(--muted);line-height:1.5;}
+.perk p strong{color:var(--text);display:block;margin-bottom:2px;}
+.booking-form-wrap{background:#fff;border-radius:28px;padding:44px;box-shadow:0 20px 80px rgba(194,24,91,.12);}
+.booking-form-wrap h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--dark);margin-bottom:28px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;border:1.5px solid var(--blush-mid);border-radius:12px;background:var(--cream);font-family:'Jost',sans-serif;font-size:14px;color:var(--text);transition:border-color .3s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(194,24,91,.08);}
+.form-group textarea{height:90px;resize:none;}
+.btn-submit{width:100%;padding:16px;background:linear-gradient(135deg,var(--rose),var(--rose-light));color:#fff;border:none;border-radius:40px;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .3s;font-family:'Jost',sans-serif;margin-top:8px;}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(194,24,91,.35);}
+.form-success{display:none;text-align:center;padding:30px;background:rgba(34,197,94,.06);border-radius:16px;border:1px solid rgba(34,197,94,.2);}
+.form-success .check{font-size:48px;margin-bottom:12px;}
+.form-success h4{font-family:'Cormorant Garamond',serif;font-size:24px;color:#166534;margin-bottom:8px;}
+.form-success p{color:#15803d;font-size:14px;}
+/* FOOTER */
+footer{background:var(--dark);color:#fff;padding:60px;text-align:center;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--rose);margin-bottom:16px;}
+.footer-logo span{color:var(--gold);font-style:italic;}
+.footer-tagline{color:rgba(255,255,255,.4);font-size:14px;margin-bottom:32px;font-weight:300;}
+.footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:32px;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;letter-spacing:1px;transition:color .3s;}
+.footer-links a:hover{color:var(--rose);}
+.footer-copy{color:rgba(255,255,255,.25);font-size:12px;}
+.footer-admin-link{color:rgba(255,255,255,.15);font-size:12px;margin-top:16px;display:inline-block;text-decoration:none;transition:color .3s;}
+.footer-admin-link:hover{color:var(--rose);}
+/* WHATSAPP */
+.wa-btn{position:fixed;bottom:32px;right:32px;width:58px;height:58px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,.4);z-index:900;text-decoration:none;transition:all .3s;animation:pulsewa 2s ease infinite;}
+.wa-btn:hover{transform:scale(1.1);}
+.wa-btn svg{width:30px;height:30px;fill:#fff;}
+@keyframes pulsewa{0%,100%{box-shadow:0 8px 30px rgba(37,211,102,.4);}50%{box-shadow:0 8px 50px rgba(37,211,102,.6),0 0 0 10px rgba(37,211,102,.1);}}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:9998;background:rgba(26,10,15,.9);align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:90vw;max-height:85vh;border-radius:16px;object-fit:contain;}
+.lightbox-close{position:absolute;top:24px;right:32px;color:#fff;font-size:32px;cursor:pointer;background:none;border:none;opacity:.7;}
+.lightbox-close:hover{opacity:1;}
+@media(max-width:900px){
+  nav{padding:16px 24px;}
+  .nav-links{display:none;}
+  section{padding:70px 24px;}
+  .hero-content{padding:0 24px;}
+  .hero h1{font-size:48px;}
+  .hero-img-area{display:none;}
+  .hero-stats{right:24px;bottom:40px;gap:24px;}
+  .stat-num{font-size:32px;}
+  .services-grid,.booking-wrap{grid-template-columns:1fr;}
+  .catalog-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
 
-<!-- CURSOR -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">Glam <span>Nails</span></a>
   <ul class="nav-links">
@@ -26,16 +188,12 @@
   <a href="#cita" class="nav-cta">Reservar Cita</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-bg-shape"></div>
   <div class="hero-bg-shape2"></div>
-  <div class="hero-petals">
-    <span class="petal">🌸</span>
-    <span class="petal">✨</span>
-    <span class="petal">💅</span>
-    <span class="petal">🌷</span>
-    <span class="petal">⭐</span>
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;">
+    <span class="petal">🌸</span><span class="petal">✨</span>
+    <span class="petal">💅</span><span class="petal">🌷</span><span class="petal">⭐</span>
   </div>
   <div class="hero-content">
     <div class="hero-badge">✦ Studio de Uñas Premium</div>
@@ -47,18 +205,9 @@
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num" id="statClients">500+</div>
-      <div class="stat-label">Clientas felices</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num" id="statYears">3+</div>
-      <div class="stat-label">Años de experiencia</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num" id="statQuality">100%</div>
-      <div class="stat-label">Productos premium</div>
-    </div>
+    <div class="stat-item"><div class="stat-num" id="statClients">500+</div><div class="stat-label">Clientas felices</div></div>
+    <div class="stat-item"><div class="stat-num" id="statYears">3+</div><div class="stat-label">Años de experiencia</div></div>
+    <div class="stat-item"><div class="stat-num" id="statQuality">100%</div><div class="stat-label">Productos premium</div></div>
   </div>
   <div class="hero-img-area">
     <div class="nail-showcase">
@@ -70,19 +219,15 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services" id="servicios">
   <div class="services-header reveal">
     <span class="section-label">Lo que ofrecemos</span>
     <h2 class="section-title">Nuestros <em>Servicios</em></h2>
-    <p class="section-sub">Cada servicio es realizado con los mejores materiales y toda nuestra dedicación.</p>
+    <p class="section-sub">Cada servicio realizado con los mejores materiales y dedicación.</p>
   </div>
-  <div class="services-grid" id="servicesGrid">
-    <!-- Renderizado por app.js -->
-  </div>
+  <div class="services-grid" id="servicesGrid"></div>
 </section>
 
-<!-- CATALOG -->
 <section class="catalog" id="catalogo">
   <div class="catalog-header reveal">
     <div>
@@ -96,71 +241,41 @@
       <button class="filter-btn" onclick="filterCatalog(this,'nailart')">Nail Art</button>
     </div>
   </div>
-  <div class="catalog-grid" id="catalogGrid">
-    <!-- Renderizado por app.js -->
-  </div>
+  <div class="catalog-grid" id="catalogGrid"></div>
 </section>
 
-<!-- GALLERY -->
 <section class="gallery" id="galeria">
   <div class="gallery-header reveal">
     <span class="section-label">Nuestro trabajo</span>
     <h2 class="section-title">Galería de <em>Resultados</em></h2>
-    <p class="section-sub">Trabajos reales de nuestras clientas. Cada foto, un antes y después real.</p>
+    <p class="section-sub">Trabajos reales de nuestras clientas.</p>
   </div>
-  <div class="gallery-grid" id="galleryGrid">
-    <!-- Renderizado por app.js -->
-  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
 </section>
 
-<!-- BOOKING -->
 <section class="booking" id="cita">
   <div class="booking-wrap">
     <div class="booking-info reveal">
       <span class="section-label">Agenda tu visita</span>
       <h2 class="section-title">Reserva tu <em>Cita</em></h2>
-      <p class="section-sub">Elige tu servicio, el día y la hora. Te confirmaremos tu cita por WhatsApp.</p>
+      <p class="section-sub">Elige tu servicio, día y hora. Te confirmamos por WhatsApp.</p>
       <div class="booking-perks">
-        <div class="perk">
-          <div class="perk-icon">📅</div>
-          <p><strong>Confirmación por WhatsApp</strong>Recibirás confirmación en menos de 1 hora.</p>
-        </div>
-        <div class="perk">
-          <div class="perk-icon">⏰</div>
-          <p><strong>Puntualidad garantizada</strong>Respetamos tu tiempo. Cada cita dura lo que debe.</p>
-        </div>
-        <div class="perk">
-          <div class="perk-icon">💎</div>
-          <p><strong>Productos premium</strong>Solo usamos marcas certificadas y seguras para ti.</p>
-        </div>
+        <div class="perk"><div class="perk-icon">📅</div><p><strong>Confirmación por WhatsApp</strong>En menos de 1 hora.</p></div>
+        <div class="perk"><div class="perk-icon">⏰</div><p><strong>Puntualidad garantizada</strong>Respetamos tu tiempo.</p></div>
+        <div class="perk"><div class="perk-icon">💎</div><p><strong>Productos premium</strong>Solo marcas certificadas.</p></div>
       </div>
     </div>
     <div class="booking-form-wrap reveal">
       <h3>✦ Agendar Cita</h3>
       <div id="bookingForm">
         <div class="form-row">
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" id="bookName" placeholder="Tu nombre">
-          </div>
-          <div class="form-group">
-            <label>Teléfono</label>
-            <input type="tel" id="bookPhone" placeholder="+503 0000-0000">
-          </div>
+          <div class="form-group"><label>Nombre</label><input type="text" id="bookName" placeholder="Tu nombre"></div>
+          <div class="form-group"><label>Teléfono</label><input type="tel" id="bookPhone" placeholder="+503 0000-0000"></div>
         </div>
-        <div class="form-group">
-          <label>Servicio</label>
-          <select id="bookService">
-            <option value="">Elige un servicio...</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Servicio</label><select id="bookService"><option value="">Elige un servicio...</option></select></div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Fecha</label>
-            <input type="date" id="bookDate">
-          </div>
-          <div class="form-group">
-            <label>Hora</label>
+          <div class="form-group"><label>Fecha</label><input type="date" id="bookDate"></div>
+          <div class="form-group"><label>Hora</label>
             <select id="bookTime">
               <option value="">Hora...</option>
               <option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
@@ -169,48 +284,182 @@
             </select>
           </div>
         </div>
-        <div class="form-group">
-          <label>Notas / inspiración (opcional)</label>
-          <textarea id="bookNotes" placeholder="Describe el diseño que quieres..."></textarea>
-        </div>
+        <div class="form-group"><label>Notas (opcional)</label><textarea id="bookNotes" placeholder="Describe el diseño que quieres..."></textarea></div>
         <button class="btn-submit" onclick="submitBooking()">💅 Confirmar Reserva</button>
       </div>
       <div class="form-success" id="bookingSuccess">
         <div class="check">🌸</div>
         <h4>¡Cita registrada!</h4>
-        <p>Te confirmaremos por WhatsApp muy pronto. ¡Gracias por confiar en nosotras!</p>
+        <p>Te confirmaremos por WhatsApp muy pronto. ¡Gracias!</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Glam <span>Nails</span></div>
   <p class="footer-tagline">Arte en tus manos, belleza real.</p>
   <div class="footer-links">
-    <a href="#inicio">Inicio</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#catalogo">Catálogo</a>
-    <a href="#galeria">Galería</a>
-    <a href="#cita">Agendar Cita</a>
+    <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a>
+    <a href="#catalogo">Catálogo</a><a href="#galeria">Galería</a><a href="#cita">Citas</a>
   </div>
   <p class="footer-copy">© 2025 Glam Nails Studio. Todos los derechos reservados.</p>
   <a href="admin.html" class="footer-admin-link">⚙ Admin</a>
 </footer>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/50300000000" target="_blank" class="wa-btn" id="waBtn" title="Contáctanos por WhatsApp">
+<a href="https://wa.me/50300000000" target="_blank" class="wa-btn" id="waBtn">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-close">×</button>
   <img id="lightboxImg" src="" alt="">
 </div>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script>
+// ===================== DATOS COMPARTIDOS =====================
+const DB = {
+  get(k,def){ try{return JSON.parse(localStorage.getItem(k))||def;}catch(e){return def;} },
+  set(k,v){ localStorage.setItem(k,JSON.stringify(v)); },
+
+  getGallery(){ return this.get('glamGallery',[]); },
+  getCatalog(){ return this.get('glamCatalog',[]); },
+  getServices(){
+    return this.get('glamServices',[
+      {id:1,icon:'💅',name:'Uñas Acrílicas',desc:'Extensión y modelado de larga duración.',price:'45',unit:'/ sesión',features:['Diseño personalizado','Duración 3-4 semanas','Materiales premium']},
+      {id:2,icon:'✨',name:'Uñas en Gel',desc:'Acabado brillante y natural con gel de calidad.',price:'38',unit:'/ sesión',features:['Brillo duradero','Duración 2-3 semanas','Curado con lámpara LED']},
+      {id:3,icon:'🎨',name:'Nail Art',desc:'Diseños artísticos únicos: flores, geométricos y más.',price:'25',unit:'+ base',features:['Diseños exclusivos','Piedras premium','Tendencias actuales']},
+    ]);
+  },
+  getAppointments(){ return this.get('glamAppointments',[]); },
+  getBusiness(){
+    return this.get('glamBusiness',{name:'Glam Nails Studio',phone:'50300000000',tagline:'Arte en tus manos, belleza real.',stats:{clients:'500+',years:'3+',quality:'100%'}});
+  },
+  addAppointment(a){
+    const list=this.getAppointments();
+    list.unshift({...a,id:Date.now(),status:'nueva'});
+    this.set('glamAppointments',list);
+  },
+  getDefaultCatalog(){
+    return [
+      {id:-1,name:'French Glam',type:'acrilicas',desc:'Clásico french con detalles dorados',img:null,emoji:'✨',price:'45'},
+      {id:-2,name:'Rosa Pastel',type:'gel',desc:'Degradado rosa suave y luminoso',img:null,emoji:'🌸',price:'38'},
+      {id:-3,name:'Floral Dreams',type:'nailart',desc:'Flores pintadas a mano',img:null,emoji:'🌺',price:'25'},
+      {id:-4,name:'Marble Luxe',type:'acrilicas',desc:'Efecto mármol en blanco y dorado',img:null,emoji:'💎',price:'50'},
+      {id:-5,name:'Glitter Night',type:'gel',desc:'Destellos brillantes',img:null,emoji:'🌟',price:'42'},
+      {id:-6,name:'Geometric Art',type:'nailart',desc:'Líneas geométricas minimalistas',img:null,emoji:'🎨',price:'30'},
+    ];
+  },
+};
+
+// ===================== CURSOR =====================
+const cur=document.getElementById('cursor'),curR=document.getElementById('cursorRing');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px';
+  setTimeout(()=>{curR.style.left=e.clientX+'px';curR.style.top=e.clientY+'px';},60);
+});
+
+// ===================== NAV =====================
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>80));
+
+// ===================== REVEAL =====================
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ===================== RENDER =====================
+function renderServices(){
+  const svcs=DB.getServices();
+  document.getElementById('servicesGrid').innerHTML=svcs.map(s=>`
+    <div class="service-card reveal">
+      <span class="service-icon">${s.icon}</span>
+      <h3>${s.name}</h3><p>${s.desc}</p>
+      <div class="service-price">$${s.price} <span>${s.unit}</span></div>
+      <ul class="service-features">${s.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+    </div>`).join('');
+  document.querySelectorAll('#servicesGrid .reveal').forEach(el=>obs.observe(el));
+}
+
+function renderCatalog(filter='todos'){
+  const all=[...DB.getDefaultCatalog(),...DB.getCatalog()];
+  const items=filter==='todos'?all:all.filter(i=>i.type===filter);
+  document.getElementById('catalogGrid').innerHTML=items.map(item=>`
+    <div class="catalog-item reveal" data-type="${item.type}">
+      <div class="catalog-img">
+        ${item.img?`<img src="${item.img}" alt="${item.name}">`:`<span style="font-size:56px">${item.emoji||'💅'}</span>`}
+        <div class="catalog-overlay"><span class="catalog-overlay-text">Ver diseño ✦</span></div>
+      </div>
+      <div class="catalog-info">
+        <h4>${item.name}</h4><p>${item.desc}</p>
+        <span class="catalog-tag">${item.type==='acrilicas'?'Acrílicas':item.type==='gel'?'Gel':'Nail Art'}</span>
+        ${item.price?`<div class="catalog-price">$${item.price}</div>`:''}
+      </div>
+    </div>`).join('');
+  document.querySelectorAll('#catalogGrid .reveal').forEach(el=>obs.observe(el));
+}
+
+function filterCatalog(btn,type){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active'); renderCatalog(type);
+}
+
+function renderGallery(){
+  const imgs=DB.getGallery();
+  const grid=document.getElementById('galleryGrid');
+  if(!imgs.length){
+    grid.innerHTML=[{e:'💅',c:'tall'},{e:'✨',c:''},{e:'🌸',c:''},{e:'🎨',c:'wide'},{e:'💎',c:''},{e:'🌟',c:''}]
+      .map(p=>`<div class="gallery-item ${p.c}"><div class="gallery-placeholder">${p.e}</div><span class="gallery-empty-hint">Agrega fotos desde admin</span></div>`).join('');
+  } else {
+    grid.innerHTML=imgs.map((img,i)=>`
+      <div class="gallery-item ${i===0?'tall':i===3?'wide':''}" onclick="openLightbox('${img.src}')">
+        <img src="${img.src}" alt="">
+      </div>`).join('');
+  }
+}
+
+function renderBusiness(){
+  const b=DB.getBusiness();
+  const wa=document.getElementById('waBtn');
+  if(wa) wa.href=`https://wa.me/${b.phone||'50300000000'}`;
+  const s=b.stats||{};
+  ['statClients','statYears','statQuality'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(el) el.textContent=[s.clients,s.years,s.quality][i]||['500+','3+','100%'][i];
+  });
+  const sel=document.getElementById('bookService');
+  if(sel){
+    sel.innerHTML='<option value="">Elige un servicio...</option>'+
+      DB.getServices().map(s=>`<option>${s.name} — $${s.price}</option>`).join('')+
+      '<option>Acrílicas + Nail Art</option><option>Gel + Nail Art</option>';
+  }
+}
+
+// ===================== BOOKING =====================
+async function submitBooking(){
+  const name=document.getElementById('bookName').value.trim();
+  const phone=document.getElementById('bookPhone').value.trim();
+  const service=document.getElementById('bookService').value;
+  const date=document.getElementById('bookDate').value;
+  const time=document.getElementById('bookTime').value;
+  const notes=document.getElementById('bookNotes').value.trim();
+  if(!name||!phone||!service||!date||!time){alert('Por favor completa todos los campos 🌸');return;}
+  DB.addAppointment({name,phone,service,date,time,notes});
+  const btn=document.querySelector('.btn-submit');
+  btn.textContent='⏳ Enviando...'; btn.disabled=true;
+  // n8n webhook (opcional) — cambia la URL cuando lo tengas
+  try{ await fetch('https://TU-N8N.com/webhook/glam-nails-cita',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre:name,telefono:phone,servicio:service,fecha:date,hora:time,notas:notes})}); }catch(e){}
+  document.getElementById('bookingForm').style.display='none';
+  document.getElementById('bookingSuccess').style.display='block';
+}
+
+// ===================== LIGHTBOX =====================
+function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('open');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+
+// ===================== INIT =====================
+document.addEventListener('DOMContentLoaded',()=>{
+  renderBusiness(); renderServices(); renderCatalog(); renderGallery();
+  document.getElementById('bookDate').min=new Date().toISOString().split('T')[0];
+});
+</script>
 </body>
 </html>

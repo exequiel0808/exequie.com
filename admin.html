@@ -7,595 +7,236 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --rose: #c2185b;
-  --rose-light: #e91e8c;
-  --blush: #fce4ec;
-  --blush-mid: #f8bbd0;
-  --gold: #c9a96e;
-  --cream: #fff8f8;
-  --dark: #1a0a0f;
-  --text: #3d1a2a;
-  --muted: #9e7a8a;
-  --bg: #0f0508;
-  --sidebar-w: 240px;
-  --success: #22c55e;
-  --danger: #ef4444;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Jost', sans-serif; background: var(--bg); color: #e8d5dc; min-height: 100vh; }
-
-/* ===================== LOGIN SCREEN ===================== */
-#loginScreen {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(ellipse at 60% 30%, rgba(194,24,91,.12) 0%, transparent 60%),
-              radial-gradient(ellipse at 20% 80%, rgba(201,169,110,.08) 0%, transparent 50%),
-              var(--bg);
-}
-.login-box {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(194,24,91,.2);
-  border-radius: 28px;
-  padding: 52px 44px;
-  width: 100%;
-  max-width: 420px;
-  text-align: center;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 32px 80px rgba(0,0,0,.4);
-}
-.login-logo { font-family: 'Cormorant Garamond', serif; font-size: 30px; color: var(--rose); margin-bottom: 6px; }
-.login-logo span { color: var(--gold); font-style: italic; }
-.login-subtitle { font-size: 13px; color: rgba(255,255,255,.3); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 36px; }
-.login-icon { font-size: 52px; margin-bottom: 20px; }
-.login-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #fff; margin-bottom: 8px; }
-.login-box p { font-size: 14px; color: rgba(255,255,255,.4); margin-bottom: 28px; }
-.login-input-wrap { position: relative; margin-bottom: 16px; }
-.login-input-wrap input {
-  width: 100%;
-  padding: 14px 18px;
-  background: rgba(255,255,255,.06);
-  border: 1.5px solid rgba(194,24,91,.25);
-  border-radius: 14px;
-  font-family: 'Jost', sans-serif;
-  font-size: 15px;
-  color: #fff;
-  outline: none;
-  letter-spacing: 3px;
-  text-align: center;
-  transition: border-color .3s, box-shadow .3s;
-}
-.login-input-wrap input:focus {
-  border-color: var(--rose);
-  box-shadow: 0 0 0 4px rgba(194,24,91,.12);
-}
-.login-input-wrap input::placeholder { letter-spacing: 1px; color: rgba(255,255,255,.25); }
-.login-btn {
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, var(--rose), var(--rose-light));
-  color: #fff;
-  border: none;
-  border-radius: 40px;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: 'Jost', sans-serif;
-  transition: all .3s;
-  box-shadow: 0 8px 30px rgba(194,24,91,.3);
-}
-.login-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(194,24,91,.4); }
-.login-error {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  background: rgba(239,68,68,.1);
-  border: 1px solid rgba(239,68,68,.3);
-  color: #fca5a5;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-size: 13px;
-  margin-top: 14px;
-}
-.back-link { display: inline-block; margin-top: 20px; color: rgba(255,255,255,.25); font-size: 13px; text-decoration: none; transition: color .3s; }
-.back-link:hover { color: var(--rose); }
-
-/* ===================== ADMIN PANEL ===================== */
-#adminPanel { display: none; min-height: 100vh; }
-
-.admin-layout { display: flex; min-height: 100vh; }
-
+:root{--rose:#c2185b;--rose-l:#e91e8c;--gold:#c9a96e;--bg:#0f0508;--sw:240px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:#e8d5dc;min-height:100vh;}
+/* LOGIN */
+#loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 60% 30%,rgba(194,24,91,.12),transparent 60%),var(--bg);}
+.lbox{background:rgba(255,255,255,.04);border:1px solid rgba(194,24,91,.2);border-radius:28px;padding:52px 44px;width:100%;max-width:420px;text-align:center;box-shadow:0 32px 80px rgba(0,0,0,.4);}
+.llogo{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--rose);margin-bottom:4px;}
+.llogo span{color:var(--gold);font-style:italic;}
+.lsub{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:2px;text-transform:uppercase;margin-bottom:32px;}
+.licon{font-size:50px;margin-bottom:16px;}
+.lbox h2{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;margin-bottom:8px;}
+.lbox>p{font-size:14px;color:rgba(255,255,255,.35);margin-bottom:24px;}
+.lbox input[type=password]{width:100%;padding:14px 18px;background:rgba(255,255,255,.06);border:1.5px solid rgba(194,24,91,.3);border-radius:14px;font-family:'Jost',sans-serif;font-size:15px;color:#fff;outline:none;letter-spacing:3px;text-align:center;transition:border-color .3s;margin-bottom:14px;}
+.lbox input[type=password]:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(194,24,91,.1);}
+.lbox input::placeholder{letter-spacing:1px;color:rgba(255,255,255,.2);}
+.lbtn{width:100%;padding:14px;background:linear-gradient(135deg,var(--rose),var(--rose-l));color:#fff;border:none;border-radius:40px;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:'Jost',sans-serif;transition:all .3s;}
+.lbtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(194,24,91,.35);}
+.lerr{display:none;align-items:center;gap:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:10px 16px;border-radius:10px;font-size:13px;margin-top:12px;text-align:left;}
+.lback{display:inline-block;margin-top:18px;color:rgba(255,255,255,.2);font-size:13px;text-decoration:none;}
+.lback:hover{color:var(--rose);}
+/* PANEL */
+#adminPanel{display:none;}
+.layout{display:flex;min-height:100vh;}
 /* SIDEBAR */
-.sidebar {
-  width: var(--sidebar-w);
-  background: rgba(255,255,255,.03);
-  border-right: 1px solid rgba(194,24,91,.12);
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0; left: 0; bottom: 0;
-  z-index: 100;
-}
-.sidebar-brand {
-  padding: 28px 24px 20px;
-  border-bottom: 1px solid rgba(194,24,91,.1);
-}
-.sidebar-brand .logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--rose); }
-.sidebar-brand .logo span { color: var(--gold); font-style: italic; }
-.sidebar-brand p { font-size: 11px; color: rgba(255,255,255,.25); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
-.sidebar-nav { flex: 1; padding: 16px 12px; }
-.sidebar-section { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.2); padding: 12px 12px 6px; }
-.tab-btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  background: none;
-  border: none;
-  color: rgba(255,255,255,.45);
-  font-family: 'Jost', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: all .2s;
-  text-align: left;
-  margin-bottom: 2px;
-  position: relative;
-}
-.tab-btn .tab-icon { font-size: 16px; }
-.tab-btn:hover { background: rgba(194,24,91,.08); color: rgba(255,255,255,.75); }
-.tab-btn.active { background: rgba(194,24,91,.15); color: #fff; }
-.tab-btn.active::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 25%; bottom: 25%;
-  width: 3px;
-  background: var(--rose);
-  border-radius: 0 3px 3px 0;
-}
-.tab-badge {
-  margin-left: auto;
-  background: var(--rose);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 20px;
-  min-width: 20px;
-  text-align: center;
-}
-.sidebar-footer {
-  padding: 16px 12px;
-  border-top: 1px solid rgba(194,24,91,.1);
-}
-.back-to-site {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,.3);
-  font-size: 13px;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: all .2s;
-}
-.back-to-site:hover { color: rgba(255,255,255,.6); background: rgba(255,255,255,.04); }
-
-/* MAIN CONTENT */
-.admin-main {
-  margin-left: var(--sidebar-w);
-  flex: 1;
-  padding: 36px 40px;
-  min-height: 100vh;
-}
-.admin-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 32px;
-}
-.admin-topbar h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 30px;
-  font-weight: 600;
-  color: #fff;
-}
-.admin-topbar p { font-size: 13px; color: rgba(255,255,255,.3); margin-top: 2px; }
-.topbar-actions { display: flex; gap: 10px; }
-
-/* TAB PANES */
-.tab-pane { display: none; }
-.tab-pane.active { display: block; }
-
-/* CARDS & SECTIONS */
-.admin-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(194,24,91,.12);
-  border-radius: 18px;
-  padding: 28px;
-  margin-bottom: 24px;
-}
-.admin-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 6px;
-}
-.admin-card .card-sub { font-size: 13px; color: rgba(255,255,255,.3); margin-bottom: 20px; }
-
-/* DROP ZONE */
-.drop-zone {
-  border: 2px dashed rgba(194,24,91,.3);
-  border-radius: 14px;
-  padding: 36px;
-  text-align: center;
-  cursor: pointer;
-  transition: all .3s;
-  position: relative;
-  background: rgba(194,24,91,.03);
-}
-.drop-zone:hover, .drop-zone.drag-over {
-  border-color: var(--rose);
-  background: rgba(194,24,91,.07);
-}
-.drop-zone input[type=file] {
-  position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
-}
-.drop-icon { font-size: 38px; margin-bottom: 10px; }
-.drop-zone strong { color: rgba(255,255,255,.7); font-size: 15px; display: block; margin-bottom: 4px; }
-.drop-zone p { color: rgba(255,255,255,.3); font-size: 13px; }
-
-/* GALLERY GRID ADMIN */
-.admin-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
-  margin-top: 20px;
-}
-.admin-img-card {
-  border-radius: 12px;
-  overflow: hidden;
-  aspect-ratio: 1;
-  position: relative;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(194,24,91,.1);
-}
-.admin-img-card img { width: 100%; height: 100%; object-fit: cover; }
-.admin-img-overlay {
-  position: absolute; inset: 0;
-  background: rgba(26,10,15,.6);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity .2s;
-}
-.admin-img-card:hover .admin-img-overlay { opacity: 1; }
-.img-delete-btn {
-  background: rgba(239,68,68,.9); border: none; border-radius: 50%;
-  width: 36px; height: 36px; font-size: 16px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background .2s;
-}
-.img-delete-btn:hover { background: #dc2626; }
-.img-name {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
-  color: rgba(255,255,255,.7); font-size: 10px; padding: 8px 8px 6px;
-  letter-spacing: .5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-
-/* CATALOG ADMIN */
-.catalog-admin-row {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 0; border-bottom: 1px solid rgba(194,24,91,.08);
-}
-.catalog-admin-row:last-child { border-bottom: none; }
-.catalog-admin-img {
-  width: 54px; height: 54px; border-radius: 10px; overflow: hidden;
-  background: rgba(194,24,91,.1); display: flex; align-items: center; justify-content: center;
-  font-size: 28px; flex-shrink: 0;
-}
-.catalog-admin-img img { width: 100%; height: 100%; object-fit: cover; }
-.catalog-admin-info { flex: 1; min-width: 0; }
-.catalog-admin-info strong { color: #fff; font-size: 15px; display: block; }
-.catalog-admin-info p { font-size: 13px; color: rgba(255,255,255,.3); margin-top: 2px; }
-.cat-type-badge {
-  display: inline-block; background: rgba(194,24,91,.15); color: #f48fb1;
-  font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;
-  padding: 2px 9px; border-radius: 20px; margin: 3px 0;
-}
-.cat-price-label { color: var(--gold); font-size: 14px; font-weight: 600; }
-
+.sb{width:var(--sw);background:rgba(255,255,255,.03);border-right:1px solid rgba(194,24,91,.12);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100;}
+.sb-brand{padding:26px 22px 18px;border-bottom:1px solid rgba(194,24,91,.1);}
+.sb-logo{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--rose);}
+.sb-logo span{color:var(--gold);font-style:italic;}
+.sb-tag{font-size:10px;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.sb-nav{flex:1;padding:14px 10px;}
+.sb-sec{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.18);padding:12px 12px 5px;}
+.tbtn{width:100%;display:flex;align-items:center;gap:10px;padding:10px 12px;background:none;border:none;color:rgba(255,255,255,.4);font-family:'Jost',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border-radius:10px;transition:all .2s;text-align:left;margin-bottom:2px;position:relative;}
+.tbtn:hover{background:rgba(194,24,91,.08);color:rgba(255,255,255,.7);}
+.tbtn.active{background:rgba(194,24,91,.15);color:#fff;}
+.tbtn.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:3px;background:var(--rose);border-radius:0 3px 3px 0;}
+.badge{margin-left:auto;background:var(--rose);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;}
+.sb-foot{padding:14px 10px;border-top:1px solid rgba(194,24,91,.1);}
+.sb-back{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.25);font-size:13px;text-decoration:none;padding:8px 12px;border-radius:8px;transition:all .2s;}
+.sb-back:hover{color:rgba(255,255,255,.55);background:rgba(255,255,255,.04);}
+/* MAIN */
+.main{margin-left:var(--sw);flex:1;padding:34px 38px;}
+.topbar{margin-bottom:28px;}
+.topbar h1{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#fff;}
+.topbar p{font-size:13px;color:rgba(255,255,255,.3);margin-top:3px;}
+/* TABS */
+.pane{display:none;}
+.pane.active{display:block;}
+/* CARD */
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(194,24,91,.12);border-radius:18px;padding:26px;margin-bottom:22px;}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:21px;color:#fff;margin-bottom:5px;}
+.csub{font-size:13px;color:rgba(255,255,255,.28);margin-bottom:18px;}
+.card-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
+.card-hd h3,.card-hd .csub{margin-bottom:2px;}
+/* DROP */
+.dz{border:2px dashed rgba(194,24,91,.28);border-radius:14px;padding:34px;text-align:center;cursor:pointer;transition:all .3s;position:relative;background:rgba(194,24,91,.02);}
+.dz:hover,.dz.over{border-color:var(--rose);background:rgba(194,24,91,.07);}
+.dz input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.dz .di{font-size:36px;margin-bottom:8px;}
+.dz strong{color:rgba(255,255,255,.65);font-size:14px;display:block;margin-bottom:4px;}
+.dz p{color:rgba(255,255,255,.28);font-size:13px;}
+/* GALLERY GRID */
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:18px;}
+.gcard{border-radius:11px;overflow:hidden;aspect-ratio:1;position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(194,24,91,.1);}
+.gcard img{width:100%;height:100%;object-fit:cover;display:block;}
+.gov{position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;}
+.gcard:hover .gov{opacity:1;}
+.gdel{background:rgba(220,38,38,.9);border:none;border-radius:50%;width:34px;height:34px;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.gname{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.65),transparent);color:rgba(255,255,255,.65);font-size:10px;padding:8px 6px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+/* CATALOG */
+.crow{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(194,24,91,.07);}
+.crow:last-child{border-bottom:none;}
+.cthumb{width:50px;height:50px;border-radius:9px;overflow:hidden;background:rgba(194,24,91,.1);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+.cthumb img{width:100%;height:100%;object-fit:cover;}
+.cinfo{flex:1;min-width:0;}
+.cinfo strong{color:#fff;font-size:14px;display:block;}
+.cinfo p{font-size:12px;color:rgba(255,255,255,.28);margin-top:2px;}
+.ctag{display:inline-block;background:rgba(194,24,91,.14);color:#f48fb1;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:20px;margin:2px 0;}
+.cprice{color:var(--gold);font-size:14px;font-weight:600;}
 /* CATALOG FORM */
-#catalogForm {
-  background: rgba(194,24,91,.05);
-  border: 1px solid rgba(194,24,91,.15);
-  border-radius: 14px;
-  padding: 24px;
-  margin-bottom: 20px;
-}
-#catalogForm h4 { color: #fff; font-size: 16px; margin-bottom: 16px; }
-#catalogImgPreviewWrap { display: none; margin-bottom: 14px; }
-#catalogImgPreview { width: 100%; max-height: 180px; object-fit: cover; border-radius: 10px; }
-
-/* FORM ELEMENTS (admin style) */
-.form-group-a { margin-bottom: 14px; }
-.form-group-a label {
-  display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(255,255,255,.35); font-weight: 600; margin-bottom: 6px;
-}
-.form-group-a input,
-.form-group-a select,
-.form-group-a textarea {
-  width: 100%;
-  padding: 11px 14px;
-  background: rgba(255,255,255,.05);
-  border: 1.5px solid rgba(194,24,91,.2);
-  border-radius: 10px;
-  font-family: 'Jost', sans-serif;
-  font-size: 14px;
-  color: rgba(255,255,255,.85);
-  outline: none;
-  transition: border-color .3s;
-}
-.form-group-a input:focus,
-.form-group-a select:focus,
-.form-group-a textarea:focus { border-color: var(--rose); }
-.form-group-a select option { background: #1a0a0f; }
-.form-group-a textarea { resize: vertical; }
-.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.form-actions { display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
-
-/* ACTION BUTTONS */
-.action-btn {
-  padding: 9px 18px; border-radius: 30px; font-family: 'Jost', sans-serif;
-  font-size: 12px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;
-  cursor: pointer; border: none; transition: all .2s; display: inline-flex; align-items: center; gap: 6px;
-}
-.action-btn.primary { background: linear-gradient(135deg, var(--rose), var(--rose-light)); color: #fff; }
-.action-btn.primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(194,24,91,.3); }
-.action-btn.secondary { background: rgba(255,255,255,.07); color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.12); }
-.action-btn.secondary:hover { background: rgba(255,255,255,.1); color: #fff; }
-.action-btn.danger { background: rgba(239,68,68,.1); color: #fca5a5; border: 1px solid rgba(239,68,68,.2); }
-.action-btn.danger:hover { background: rgba(239,68,68,.2); }
-.action-btn.success { background: rgba(34,197,94,.12); color: #86efac; border: 1px solid rgba(34,197,94,.2); }
-.action-btn.success:hover { background: rgba(34,197,94,.2); }
-.action-btn.small { padding: 6px 13px; font-size: 11px; }
-
-/* SERVICES ADMIN */
-.service-admin-card {
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(194,24,91,.1);
-  border-radius: 14px;
-  padding: 20px;
-  margin-bottom: 14px;
-  transition: border-color .2s;
-}
-.service-admin-card:hover { border-color: rgba(194,24,91,.22); }
-.service-admin-head { display: flex; align-items: center; gap: 14px; }
-.svc-icon-big { font-size: 32px; flex-shrink: 0; }
-.service-admin-head > div { flex: 1; }
-.service-admin-head strong { color: #fff; font-size: 16px; display: block; }
-.svc-price-display { font-size: 13px; color: var(--gold); }
-.service-edit-form {
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(194,24,91,.1);
-}
-
+#catForm{background:rgba(194,24,91,.05);border:1px solid rgba(194,24,91,.18);border-radius:13px;padding:22px;margin-bottom:18px;}
+#catForm h4{color:#fff;font-size:15px;margin-bottom:14px;}
+#catPrev{display:none;margin-bottom:12px;}
+#catPrev img{width:100%;max-height:160px;object-fit:cover;border-radius:9px;display:block;}
+.pick{display:inline-flex;align-items:center;gap:7px;background:rgba(194,24,91,.1);border:1.5px dashed rgba(194,24,91,.35);border-radius:9px;padding:9px 20px;cursor:pointer;color:rgba(255,255,255,.55);font-size:13px;margin-bottom:12px;transition:all .2s;}
+.pick:hover{background:rgba(194,24,91,.18);color:#fff;}
+/* SERVICES */
+.scard{background:rgba(255,255,255,.03);border:1px solid rgba(194,24,91,.1);border-radius:13px;padding:18px;margin-bottom:12px;}
+.shead{display:flex;align-items:center;gap:12px;}
+.sico{font-size:30px;flex-shrink:0;}
+.shead>div:nth-child(2){flex:1;}
+.shead strong{color:#fff;font-size:15px;display:block;}
+.sprice{font-size:13px;color:var(--gold);}
+.sedit{margin-top:16px;padding-top:16px;border-top:1px solid rgba(194,24,91,.1);}
 /* APPOINTMENTS */
-.apt-filter-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
-.apt-filter-btn {
-  padding: 7px 18px; border-radius: 20px; border: 1px solid rgba(194,24,91,.2);
-  background: none; color: rgba(255,255,255,.4); font-size: 12px; font-weight: 600;
-  letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
-  font-family: 'Jost', sans-serif; transition: all .2s;
-}
-.apt-filter-btn:hover, .apt-filter-btn.active { background: rgba(194,24,91,.15); color: #fff; border-color: rgba(194,24,91,.4); }
-.apt-card {
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(194,24,91,.1);
-  border-left: 3px solid rgba(194,24,91,.4);
-  border-radius: 12px;
-  padding: 16px 18px;
-  margin-bottom: 10px;
-}
-.apt-card.status-confirmada { border-left-color: var(--success); }
-.apt-card.status-cancelada { border-left-color: #ef4444; opacity: .65; }
-.apt-head { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; gap: 12px; }
-.apt-head strong { color: #fff; font-size: 15px; }
-.apt-badge {
-  display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 10px;
-  border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-left: 8px;
-}
-.apt-badge.nueva { background: rgba(194,24,91,.15); color: #f48fb1; }
-.apt-badge.confirmada { background: rgba(34,197,94,.12); color: #86efac; }
-.apt-badge.cancelada { background: rgba(239,68,68,.1); color: #fca5a5; }
-.apt-actions { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; }
-.apt-details { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(255,255,255,.4); }
-.apt-notes { font-size: 13px; color: rgba(255,255,255,.35); margin-top: 8px; font-style: italic; }
-
-/* BUSINESS FORM */
-.biz-section-title { color: rgba(255,255,255,.5); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin: 22px 0 14px; padding-top: 22px; border-top: 1px solid rgba(194,24,91,.08); }
-.biz-section-title:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-
-/* EMPTY STATES */
-.empty-state { text-align: center; padding: 40px; color: rgba(255,255,255,.2); }
-.empty-state .empty-icon { font-size: 40px; margin-bottom: 12px; }
-.empty-state p { font-size: 14px; }
-
-/* STATS BAR */
-.stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
-.stat-box {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(194,24,91,.1);
-  border-radius: 14px;
-  padding: 18px 20px;
-}
-.stat-box .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--rose); font-weight: 700; }
-.stat-box .stat-lbl { font-size: 12px; color: rgba(255,255,255,.3); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
-
+.aftabs{display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap;}
+.aftab{padding:6px 16px;border-radius:20px;border:1px solid rgba(194,24,91,.2);background:none;color:rgba(255,255,255,.38);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all .2s;}
+.aftab.active,.aftab:hover{background:rgba(194,24,91,.14);color:#fff;border-color:rgba(194,24,91,.4);}
+.acard{background:rgba(255,255,255,.03);border:1px solid rgba(194,24,91,.1);border-left:3px solid rgba(194,24,91,.5);border-radius:11px;padding:14px 16px;margin-bottom:9px;}
+.acard.confirmada{border-left-color:#22c55e;}
+.ahead{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:7px;gap:10px;}
+.ahead strong{color:#fff;font-size:14px;}
+.abadge{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:1px;margin-left:7px;}
+.abadge.nueva{background:rgba(194,24,91,.14);color:#f48fb1;}
+.abadge.confirmada{background:rgba(34,197,94,.12);color:#86efac;}
+.aacts{display:flex;gap:5px;flex-shrink:0;flex-wrap:wrap;}
+.adets{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.38);}
+.anotes{font-size:12px;color:rgba(255,255,255,.3);margin-top:6px;font-style:italic;}
+/* STATS */
+.sbar{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+.sbox{background:rgba(255,255,255,.04);border:1px solid rgba(194,24,91,.1);border-radius:13px;padding:16px 18px;}
+.sval{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--rose);font-weight:700;}
+.slbl{font-size:11px;color:rgba(255,255,255,.28);letter-spacing:1px;text-transform:uppercase;margin-top:3px;}
+/* FORM ELEMENTS */
+.fg{margin-bottom:12px;}
+.fg label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600;margin-bottom:5px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;background:rgba(255,255,255,.06);border:1.5px solid rgba(194,24,91,.22);border-radius:9px;font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,.88);outline:none;transition:border-color .3s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(194,24,91,.09);}
+.fg select option{background:#1a0a0f;color:#fff;}
+.fg textarea{resize:vertical;}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.frow{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+/* BUTTONS */
+.btn{padding:8px 16px;border-radius:28px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;transition:all .2s;display:inline-flex;align-items:center;gap:5px;}
+.btn.pri{background:linear-gradient(135deg,var(--rose),var(--rose-l));color:#fff;}
+.btn.pri:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(194,24,91,.28);}
+.btn.sec{background:rgba(255,255,255,.07);color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.1);}
+.btn.sec:hover{background:rgba(255,255,255,.11);color:#fff;}
+.btn.dan{background:rgba(239,68,68,.1);color:#fca5a5;border:1px solid rgba(239,68,68,.2);}
+.btn.dan:hover{background:rgba(239,68,68,.2);}
+.btn.ok{background:rgba(34,197,94,.1);color:#86efac;border:1px solid rgba(34,197,94,.2);}
+.btn.ok:hover{background:rgba(34,197,94,.18);}
+.btn.sm{padding:5px 11px;font-size:10px;}
+/* BIZ */
+.bsep{display:block;color:rgba(255,255,255,.38);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin:20px 0 12px;padding-top:20px;border-top:1px solid rgba(194,24,91,.07);}
+.bsep:first-child{margin-top:0;padding-top:0;border-top:none;}
+/* EMPTY */
+.empty{text-align:center;padding:36px;color:rgba(255,255,255,.2);}
+.empty .ei{font-size:38px;margin-bottom:10px;}
+.empty p{font-size:13px;}
 /* TOAST */
-#toast {
-  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px);
-  background: rgba(34,197,94,.9); color: #fff; padding: 12px 24px; border-radius: 30px;
-  font-size: 14px; font-weight: 600; pointer-events: none;
-  opacity: 0; transition: all .35s; z-index: 9999; white-space: nowrap;
-}
-#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-/* RESPONSIVE */
-@media(max-width:768px) {
-  .sidebar { display: none; }
-  .admin-main { margin-left: 0; padding: 20px; }
-  .stats-bar { grid-template-columns: 1fr; }
-  .form-row-2 { grid-template-columns: 1fr; }
-}
+#toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(18px);background:rgba(34,197,94,.92);color:#fff;padding:11px 26px;border-radius:28px;font-size:13px;font-weight:600;pointer-events:none;opacity:0;transition:all .3s;z-index:9999;white-space:nowrap;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+@media(max-width:768px){.sb{display:none;}.main{margin-left:0;padding:18px;}.sbar,.fr2{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- ======== LOGIN ======== -->
+<!-- LOGIN -->
 <div id="loginScreen">
-  <div class="login-box">
-    <div class="login-logo">Glam <span>Nails</span></div>
-    <div class="login-subtitle">Panel de Administración</div>
-    <div class="login-icon">🔒</div>
+  <div class="lbox">
+    <div class="llogo">Glam <span>Nails</span></div>
+    <div class="lsub">Panel de Administración</div>
+    <div class="licon">🔒</div>
     <h2>Acceso restringido</h2>
-    <p>Ingresa la contraseña para acceder al panel.</p>
-    <div class="login-input-wrap">
-      <input type="password" id="adminPass" placeholder="Contraseña">
-    </div>
-    <button class="login-btn" onclick="checkLogin()">Ingresar al Panel</button>
-    <div class="login-error" id="loginError">
-      <span>❌</span> Contraseña incorrecta. Intenta de nuevo.
-    </div>
-    <a href="index.html" class="back-link">← Volver al sitio</a>
+    <p>Ingresa la contraseña para continuar.</p>
+    <input type="password" id="adminPass" placeholder="Contraseña">
+    <button class="lbtn" onclick="checkLogin()">Ingresar al Panel</button>
+    <div class="lerr" id="loginErr">❌ Contraseña incorrecta.</div>
+    <a href="index.html" class="lback">← Volver al sitio</a>
   </div>
 </div>
 
-<!-- ======== ADMIN PANEL ======== -->
+<!-- PANEL -->
 <div id="adminPanel">
-  <div class="admin-layout">
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="sidebar-brand">
-        <div class="logo">Glam <span>Nails</span></div>
-        <p>Panel Admin</p>
+  <div class="layout">
+    <aside class="sb">
+      <div class="sb-brand">
+        <div class="sb-logo">Glam <span>Nails</span></div>
+        <div class="sb-tag">Panel Admin</div>
       </div>
-      <nav class="sidebar-nav">
-        <div class="sidebar-section">Contenido</div>
-        <button class="tab-btn active" onclick="showTab('tabGaleria', this)">
-          <span class="tab-icon">📸</span> Galería
-        </button>
-        <button class="tab-btn" onclick="showTab('tabCatalogo', this)">
-          <span class="tab-icon">💅</span> Catálogo
-        </button>
-        <button class="tab-btn" onclick="showTab('tabServicios', this)">
-          <span class="tab-icon">✨</span> Servicios &amp; Precios
-        </button>
-        <div class="sidebar-section">Gestión</div>
-        <button class="tab-btn" onclick="showTab('tabCitas', this)">
-          <span class="tab-icon">📅</span> Citas
-          <span class="tab-badge" id="aptsBadge">0</span>
-        </button>
-        <button class="tab-btn" onclick="showTab('tabNegocio', this)">
-          <span class="tab-icon">⚙️</span> Mi Negocio
-        </button>
+      <nav class="sb-nav">
+        <div class="sb-sec">Contenido</div>
+        <button class="tbtn active" onclick="showTab('pGal',this)">📸 Galería</button>
+        <button class="tbtn" onclick="showTab('pCat',this)">💅 Catálogo</button>
+        <button class="tbtn" onclick="showTab('pSvc',this)">✨ Servicios &amp; Precios</button>
+        <div class="sb-sec">Gestión</div>
+        <button class="tbtn" onclick="showTab('pCit',this)">📅 Citas <span class="badge" id="badgeCit">0</span></button>
+        <button class="tbtn" onclick="showTab('pBiz',this)">⚙️ Mi Negocio</button>
       </nav>
-      <div class="sidebar-footer">
-        <a href="index.html" class="back-to-site">
-          <span>←</span> Ver sitio web
-        </a>
+      <div class="sb-foot">
+        <a href="index.html" class="sb-back">← Ver sitio web</a>
       </div>
     </aside>
 
-    <!-- MAIN -->
-    <main class="admin-main">
-
-      <!-- TOPBAR (changes per tab) -->
-      <div class="admin-topbar">
-        <div>
-          <h1 id="pageTitle">Galería de Fotos</h1>
-          <p id="pageSubtitle">Administra las fotos que se muestran en la galería del sitio</p>
-        </div>
+    <main class="main">
+      <div class="topbar">
+        <h1 id="ptitle">Galería de Fotos</h1>
+        <p id="psub">Administra las fotos de la galería</p>
       </div>
 
-      <!-- STATS BAR (shown on some tabs) -->
-      <div class="stats-bar" id="statsBar" style="display:none;">
-        <div class="stat-box">
-          <div class="stat-val" id="statApts">0</div>
-          <div class="stat-lbl">Citas totales</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-val" id="statNew">0</div>
-          <div class="stat-lbl">Nuevas</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-val" id="statConfirmed">0</div>
-          <div class="stat-lbl">Confirmadas</div>
-        </div>
+      <div class="sbar" id="statsBar" style="display:none;">
+        <div class="sbox"><div class="sval" id="sTotal">0</div><div class="slbl">Citas totales</div></div>
+        <div class="sbox"><div class="sval" id="sNew">0</div><div class="slbl">Nuevas</div></div>
+        <div class="sbox"><div class="sval" id="sConf">0</div><div class="slbl">Confirmadas</div></div>
       </div>
 
-      <!-- ===== TAB: GALERÍA ===== -->
-      <div class="tab-pane active" id="tabGaleria">
-        <div class="admin-card">
+      <!-- GALERÍA -->
+      <div class="pane active" id="pGal">
+        <div class="card">
           <h3>Subir fotos</h3>
-          <p class="card-sub">Puedes subir múltiples fotos a la vez. Las fotos se mostrarán en la galería del sitio.</p>
-          <div class="drop-zone" id="galleryDropZone">
-            <div class="drop-icon">📤</div>
+          <p class="csub">Arrastra imágenes o haz clic. Puedes subir varias a la vez.</p>
+          <div class="dz" id="dz">
+            <div class="di">📤</div>
             <strong>Haz clic o arrastra fotos aquí</strong>
-            <p>Formatos: JPG, PNG, WEBP</p>
-            <input type="file" id="galleryFileInput" accept="image/*" multiple>
+            <p>JPG, PNG, WEBP</p>
+            <input type="file" id="galInput" accept="image/*" multiple>
           </div>
         </div>
-        <div class="admin-card">
+        <div class="card">
           <h3>Fotos actuales</h3>
-          <p class="card-sub">Haz clic en ✕ para eliminar una foto.</p>
-          <div class="admin-gallery-grid" id="adminGalleryGrid"></div>
-          <div class="empty-state" id="galleryEmpty">
-            <div class="empty-icon">🌸</div>
-            <p>No hay fotos todavía. ¡Sube la primera!</p>
-          </div>
+          <p class="csub">Pasa el cursor sobre una foto y presiona 🗑️ para eliminarla.</p>
+          <div class="gg" id="galGrid"></div>
+          <div class="empty" id="galEmpty"><div class="ei">🌸</div><p>No hay fotos todavía.</p></div>
         </div>
       </div>
 
-      <!-- ===== TAB: CATÁLOGO ===== -->
-      <div class="tab-pane" id="tabCatalogo">
-        <div class="admin-card">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-            <div>
-              <h3>Diseños del catálogo</h3>
-              <p class="card-sub" style="margin-bottom:0;">Tus diseños personalizados. Los diseños por defecto siempre se muestran.</p>
-            </div>
-            <button class="action-btn primary" onclick="toggleCatalogForm()">+ Agregar diseño</button>
+      <!-- CATÁLOGO -->
+      <div class="pane" id="pCat">
+        <div class="card">
+          <div class="card-hd">
+            <div><h3>Diseños del catálogo</h3><p class="csub">Agrega diseños con foto, nombre y precio.</p></div>
+            <button class="btn pri" onclick="toggleCatForm()">+ Agregar diseño</button>
           </div>
-
-          <!-- FORM (hidden by default) -->
-          <div id="catalogForm" style="display:none;">
+          <div id="catForm" style="display:none;">
             <h4>✦ Nuevo diseño</h4>
-            <div id="catalogImgPreviewWrap">
-              <img id="catalogImgPreview" src="" alt="">
-            </div>
-            <div style="text-align:center;margin-bottom:14px;">
-              <label style="display:inline-block;background:rgba(194,24,91,.12);border:1px dashed rgba(194,24,91,.3);border-radius:10px;padding:10px 24px;cursor:pointer;color:rgba(255,255,255,.5);font-size:13px;">
-                📷 Seleccionar imagen
-                <input type="file" id="catalogFileInput" accept="image/*" style="display:none;">
-              </label>
-            </div>
-            <div class="form-row-2">
-              <div class="form-group-a">
-                <label>Nombre del diseño</label>
-                <input type="text" id="catName" placeholder="Ej: French Glam">
-              </div>
-              <div class="form-group-a">
-                <label>Categoría</label>
+            <div id="catPrev"><img id="catImg" src="" alt=""></div>
+            <label class="pick">📷 Seleccionar imagen (opcional)<input type="file" id="catFile" accept="image/*" style="display:none;"></label>
+            <div class="fr2">
+              <div class="fg"><label>Nombre *</label><input type="text" id="catName" placeholder="Ej: French Glam"></div>
+              <div class="fg"><label>Categoría</label>
                 <select id="catType">
                   <option value="acrilicas">Uñas Acrílicas</option>
                   <option value="gel">Uñas en Gel</option>
@@ -603,122 +244,71 @@ body { font-family: 'Jost', sans-serif; background: var(--bg); color: #e8d5dc; m
                 </select>
               </div>
             </div>
-            <div class="form-row-2">
-              <div class="form-group-a">
-                <label>Precio ($)</label>
-                <input type="text" id="catPrice" placeholder="45">
-              </div>
-              <div class="form-group-a">
-                <label>Emoji (si no hay foto)</label>
-                <input type="text" id="catEmoji" placeholder="💅" maxlength="4">
-              </div>
+            <div class="fr2">
+              <div class="fg"><label>Precio ($)</label><input type="text" id="catPrice" placeholder="45"></div>
+              <div class="fg"><label>Emoji (sin foto)</label><input type="text" id="catEmoji" placeholder="💅" maxlength="4"></div>
             </div>
-            <div class="form-group-a">
-              <label>Descripción</label>
-              <input type="text" id="catDesc" placeholder="Ej: Diseño clásico con detalles dorados">
-            </div>
-            <div class="form-actions">
-              <button class="action-btn primary" onclick="saveCatalogItem()">💾 Guardar diseño</button>
-              <button class="action-btn secondary" onclick="toggleCatalogForm()">Cancelar</button>
+            <div class="fg"><label>Descripción</label><input type="text" id="catDesc" placeholder="Diseño clásico con detalles dorados"></div>
+            <div class="frow">
+              <button class="btn pri" onclick="saveCat()">💾 Guardar diseño</button>
+              <button class="btn sec" onclick="toggleCatForm()">Cancelar</button>
             </div>
           </div>
-
-          <div id="adminCatalogList"></div>
-          <div class="empty-state" id="catalogEmpty">
-            <div class="empty-icon">💅</div>
-            <p>No has agregado diseños personalizados todavía.</p>
-          </div>
+          <div id="catList"></div>
+          <div class="empty" id="catEmpty"><div class="ei">💅</div><p>No hay diseños personalizados todavía.</p></div>
         </div>
       </div>
 
-      <!-- ===== TAB: SERVICIOS ===== -->
-      <div class="tab-pane" id="tabServicios">
-        <div class="admin-card">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
-            <div>
-              <h3>Servicios y Precios</h3>
-              <p class="card-sub" style="margin-bottom:0;">Edita los nombres, precios y descripciones de tus servicios.</p>
-            </div>
-            <button class="action-btn primary" onclick="addNewService()">+ Nuevo servicio</button>
+      <!-- SERVICIOS -->
+      <div class="pane" id="pSvc">
+        <div class="card">
+          <div class="card-hd">
+            <div><h3>Servicios y Precios</h3><p class="csub">Edita nombre, precio y descripción de cada servicio.</p></div>
+            <button class="btn pri" onclick="addSvc()">+ Nuevo servicio</button>
           </div>
-          <div id="servicesAdminList"></div>
+          <div id="svcList"></div>
         </div>
       </div>
 
-      <!-- ===== TAB: CITAS ===== -->
-      <div class="tab-pane" id="tabCitas">
-        <div class="admin-card">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:12px;">
-            <div>
-              <h3>Citas recibidas</h3>
-              <p class="card-sub" style="margin-bottom:0;">Gestiona las reservas de tus clientas.</p>
-            </div>
-            <button class="action-btn danger small" onclick="clearAllAppointments()">🗑️ Limpiar todo</button>
+      <!-- CITAS -->
+      <div class="pane" id="pCit">
+        <div class="card">
+          <div class="card-hd">
+            <div><h3>Citas recibidas</h3><p class="csub">Gestiona y confirma las reservas.</p></div>
+            <button class="btn dan sm" onclick="clearAllCitas()">🗑️ Limpiar todo</button>
           </div>
-          <div class="apt-filter-tabs">
-            <button class="apt-filter-btn active" onclick="filterApts(this,'todas')">Todas</button>
-            <button class="apt-filter-btn" onclick="filterApts(this,'nueva')">Nuevas</button>
-            <button class="apt-filter-btn" onclick="filterApts(this,'confirmada')">Confirmadas</button>
+          <div class="aftabs">
+            <button class="aftab active" onclick="filterCitas(this,'todas')">Todas</button>
+            <button class="aftab" onclick="filterCitas(this,'nueva')">Nuevas</button>
+            <button class="aftab" onclick="filterCitas(this,'confirmada')">Confirmadas</button>
           </div>
-          <div id="appointmentsList"></div>
-          <div class="empty-state" id="appointmentsEmpty">
-            <div class="empty-icon">📅</div>
-            <p>No hay citas registradas todavía.</p>
-          </div>
+          <div id="citasList"></div>
+          <div class="empty" id="citasEmpty"><div class="ei">📅</div><p>No hay citas registradas todavía.</p></div>
         </div>
       </div>
 
-      <!-- ===== TAB: NEGOCIO ===== -->
-      <div class="tab-pane" id="tabNegocio">
-        <div class="admin-card">
+      <!-- NEGOCIO -->
+      <div class="pane" id="pBiz">
+        <div class="card">
           <h3>Información del negocio</h3>
-          <p class="card-sub">Esta información se usa en toda la página web.</p>
-
-          <div class="biz-section-title">Datos principales</div>
-          <div class="form-row-2">
-            <div class="form-group-a">
-              <label>Nombre del negocio</label>
-              <input type="text" id="bizName" placeholder="Glam Nails Studio">
-            </div>
-            <div class="form-group-a">
-              <label>Teléfono WhatsApp (solo números)</label>
-              <input type="tel" id="bizPhone" placeholder="50312345678">
-            </div>
+          <p class="csub">Esta información se muestra en toda la página web.</p>
+          <span class="bsep">Datos principales</span>
+          <div class="fr2">
+            <div class="fg"><label>Nombre del negocio</label><input type="text" id="bName" placeholder="Glam Nails Studio"></div>
+            <div class="fg"><label>WhatsApp (solo números)</label><input type="tel" id="bPhone" placeholder="50312345678"></div>
           </div>
-          <div class="form-group-a">
-            <label>Slogan / tagline</label>
-            <input type="text" id="bizTagline" placeholder="Arte en tus manos, belleza real.">
+          <div class="fg"><label>Slogan</label><input type="text" id="bTag" placeholder="Arte en tus manos, belleza real."></div>
+          <div class="fr2">
+            <div class="fg"><label>Instagram</label><input type="text" id="bIg" placeholder="@glamNails"></div>
+            <div class="fg"><label>Dirección</label><input type="text" id="bAddr" placeholder="Ciudad, país"></div>
           </div>
-          <div class="form-row-2">
-            <div class="form-group-a">
-              <label>Instagram (usuario)</label>
-              <input type="text" id="bizInstagram" placeholder="@glamNailsStudio">
-            </div>
-            <div class="form-group-a">
-              <label>Dirección (opcional)</label>
-              <input type="text" id="bizAddress" placeholder="Tu ciudad, país">
-            </div>
+          <span class="bsep">Estadísticas del inicio</span>
+          <div class="fr2">
+            <div class="fg"><label>Clientas felices</label><input type="text" id="bStat1" placeholder="500+"></div>
+            <div class="fg"><label>Años de experiencia</label><input type="text" id="bStat2" placeholder="3+"></div>
           </div>
-
-          <div class="biz-section-title">Estadísticas del hero</div>
-          <div class="form-row-2">
-            <div class="form-group-a">
-              <label>Clientas felices</label>
-              <input type="text" id="bizStatClients" placeholder="500+">
-            </div>
-            <div class="form-group-a">
-              <label>Años de experiencia</label>
-              <input type="text" id="bizStatYears" placeholder="3+">
-            </div>
-          </div>
-          <div class="form-group-a" style="max-width:260px;">
-            <label>Calidad / 3er stat</label>
-            <input type="text" id="bizStatQuality" placeholder="100%">
-          </div>
-
-          <div style="margin-top:22px;">
-            <button class="action-btn primary" onclick="saveBusinessInfo()">💾 Guardar información</button>
-          </div>
+          <div class="fg" style="max-width:250px;"><label>3er stat</label><input type="text" id="bStat3" placeholder="100%"></div>
+          <div style="margin-top:18px;"><button class="btn pri" onclick="saveBiz()">💾 Guardar información</button></div>
         </div>
       </div>
 
@@ -726,50 +316,381 @@ body { font-family: 'Jost', sans-serif; background: var(--bg); color: #e8d5dc; m
   </div>
 </div>
 
-<!-- TOAST -->
 <div id="toast"></div>
 
 <script>
-// Tab info map
-const TAB_INFO = {
-  tabGaleria:  { title: 'Galería de Fotos', sub: 'Administra las fotos que se muestran en la galería del sitio' },
-  tabCatalogo: { title: 'Catálogo de Diseños', sub: 'Agrega y gestiona tus diseños personalizados con precio' },
-  tabServicios:{ title: 'Servicios & Precios', sub: 'Edita los servicios, precios y descripciones de lo que ofreces' },
-  tabCitas:    { title: 'Citas Recibidas', sub: 'Gestiona y confirma las reservas de tus clientas' },
-  tabNegocio:  { title: 'Mi Negocio', sub: 'Información general: nombre, WhatsApp, redes sociales' },
+// =====================================================
+// BASE DE DATOS (localStorage)
+// =====================================================
+const DB = {
+  get(k, def) {
+    try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; }
+    catch(e) { return def; }
+  },
+  set(k, v) { localStorage.setItem(k, JSON.stringify(v)); },
+
+  getGallery()      { return this.get('glamGallery', []); },
+  setGallery(d)     { this.set('glamGallery', d); },
+  getCatalog()      { return this.get('glamCatalog', []); },
+  setCatalog(d)     { this.set('glamCatalog', d); },
+  getAppointments() { return this.get('glamAppointments', []); },
+  setAppointments(d){ this.set('glamAppointments', d); },
+
+  getServices() {
+    return this.get('glamServices', [
+      {id:1, icon:'💅', name:'Uñas Acrílicas', desc:'Extensión y modelado de larga duración.', price:'45', unit:'/ sesión', features:['Diseño personalizado','Duración 3-4 semanas','Materiales premium']},
+      {id:2, icon:'✨', name:'Uñas en Gel',    desc:'Acabado brillante y natural.',             price:'38', unit:'/ sesión', features:['Brillo duradero','Duración 2-3 semanas','Curado con LED']},
+      {id:3, icon:'🎨', name:'Nail Art',       desc:'Diseños artísticos únicos.',               price:'25', unit:'+ base',  features:['Diseños exclusivos','Accesorios premium','Tendencias actuales']},
+    ]);
+  },
+  setServices(d) { this.set('glamServices', d); },
+
+  getBusiness() {
+    return this.get('glamBusiness', {
+      name:'Glam Nails Studio', phone:'50300000000',
+      tagline:'Arte en tus manos, belleza real.',
+      instagram:'', address:'',
+      stats:{ clients:'500+', years:'3+', quality:'100%' }
+    });
+  },
+  setBusiness(d) { this.set('glamBusiness', d); },
 };
 
-const _origShowTab = showTab;
-window.showTab = function(tabId, btn) {
-  _origShowTab(tabId, btn);
-  const info = TAB_INFO[tabId];
-  if (info) {
-    document.getElementById('pageTitle').textContent = info.title;
-    document.getElementById('pageSubtitle').textContent = info.sub;
+// =====================================================
+// LOGIN
+// =====================================================
+const PWD = 'glam2025'; // 🔒 Cambia aquí tu contraseña
+
+function checkLogin() {
+  const v = document.getElementById('adminPass').value;
+  if (v === PWD) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminPanel').style.display  = 'block';
+    initAll();
+  } else {
+    const e = document.getElementById('loginErr');
+    e.style.display = 'flex';
+    document.getElementById('adminPass').value = '';
+    document.getElementById('adminPass').focus();
+    setTimeout(() => e.style.display = 'none', 3000);
   }
-  document.getElementById('statsBar').style.display = tabId === 'tabCitas' ? 'grid' : 'none';
-  if (tabId === 'tabCitas') updateCitasStats();
-};
-
-function updateCitasStats() {
-  const apts = GlamData.getAppointments();
-  document.getElementById('statApts').textContent = apts.length;
-  document.getElementById('statNew').textContent = apts.filter(a => (a.status || 'nueva') === 'nueva').length;
-  document.getElementById('statConfirmed').textContent = apts.filter(a => a.status === 'confirmada').length;
-  document.getElementById('aptsBadge').textContent = apts.filter(a => (a.status || 'nueva') === 'nueva').length;
 }
-
-function filterApts(btn, filter) {
-  document.querySelectorAll('.apt-filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderAppointments(filter);
-}
-
-// Update badge on load
-document.addEventListener('DOMContentLoaded', () => {
-  const newApts = GlamData.getAppointments().filter(a => (a.status || 'nueva') === 'nueva').length;
-  document.getElementById('aptsBadge').textContent = newApts;
+document.getElementById('adminPass').addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkLogin();
 });
+
+// =====================================================
+// TABS
+// =====================================================
+const TABS = {
+  pGal: ['Galería de Fotos',     'Administra las fotos de la galería del sitio'],
+  pCat: ['Catálogo de Diseños',  'Agrega diseños con foto, nombre y precio'],
+  pSvc: ['Servicios & Precios',  'Edita nombre, precio y descripción de cada servicio'],
+  pCit: ['Citas Recibidas',      'Gestiona y confirma las reservas de clientas'],
+  pBiz: ['Mi Negocio',           'Nombre, WhatsApp, redes sociales y estadísticas'],
+};
+function showTab(id, btn) {
+  document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tbtn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  const [t, s] = TABS[id] || ['',''];
+  document.getElementById('ptitle').textContent = t;
+  document.getElementById('psub').textContent   = s;
+  document.getElementById('statsBar').style.display = id === 'pCit' ? 'grid' : 'none';
+  if (id === 'pCit') updateStats();
+}
+
+// =====================================================
+// TOAST
+// =====================================================
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// =====================================================
+// GALERÍA
+// =====================================================
+function initGallery() {
+  renderGallery();
+  const dz  = document.getElementById('dz');
+  const inp = document.getElementById('galInput');
+  dz.addEventListener('click', () => inp.click());
+  dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('over'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('over'));
+  dz.addEventListener('drop', e => {
+    e.preventDefault(); dz.classList.remove('over');
+    Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')).forEach(readGal);
+  });
+  inp.addEventListener('change', () => {
+    Array.from(inp.files).forEach(readGal);
+    inp.value = '';
+  });
+}
+function readGal(file) {
+  const r = new FileReader();
+  r.onload = e => {
+    const g = DB.getGallery();
+    g.unshift({ id: Date.now(), src: e.target.result, name: file.name });
+    DB.setGallery(g);
+    renderGallery();
+    toast('Foto agregada 🌸');
+  };
+  r.readAsDataURL(file);
+}
+function renderGallery() {
+  const imgs  = DB.getGallery();
+  const grid  = document.getElementById('galGrid');
+  const empty = document.getElementById('galEmpty');
+  if (!imgs.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  grid.innerHTML = imgs.map(img => `
+    <div class="gcard">
+      <img src="${img.src}" alt="">
+      <div class="gov"><button class="gdel" onclick="delGal(${img.id})">🗑️</button></div>
+      <p class="gname">${img.name || ''}</p>
+    </div>`).join('');
+}
+function delGal(id) {
+  if (!confirm('¿Eliminar esta foto?')) return;
+  DB.setGallery(DB.getGallery().filter(x => x.id !== id));
+  renderGallery(); toast('Foto eliminada');
+}
+
+// =====================================================
+// CATÁLOGO
+// =====================================================
+let pendingImg = null;
+
+function initCatalog() {
+  renderCatalog();
+  document.getElementById('catFile').addEventListener('change', function() {
+    const f = this.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = e => {
+      pendingImg = e.target.result;
+      document.getElementById('catImg').src = e.target.result;
+      document.getElementById('catPrev').style.display = 'block';
+    };
+    r.readAsDataURL(f);
+    this.value = '';
+  });
+}
+function toggleCatForm() {
+  const f = document.getElementById('catForm');
+  const open = f.style.display === 'none' || !f.style.display;
+  f.style.display = open ? 'block' : 'none';
+  if (open) document.getElementById('catName').focus();
+}
+function saveCat() {
+  const name = document.getElementById('catName').value.trim();
+  if (!name) { alert('El nombre es obligatorio ⚠️'); document.getElementById('catName').focus(); return; }
+  const c = DB.getCatalog();
+  c.unshift({
+    id:    Date.now(),
+    name,
+    type:  document.getElementById('catType').value,
+    price: document.getElementById('catPrice').value.trim(),
+    emoji: document.getElementById('catEmoji').value.trim() || '💅',
+    desc:  document.getElementById('catDesc').value.trim()  || 'Diseño exclusivo',
+    img:   pendingImg,
+  });
+  DB.setCatalog(c);
+  // reset
+  ['catName','catPrice','catDesc','catEmoji'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('catPrev').style.display = 'none';
+  document.getElementById('catForm').style.display = 'none';
+  pendingImg = null;
+  renderCatalog();
+  toast('¡Diseño guardado! 💅');
+}
+function renderCatalog() {
+  const items = DB.getCatalog();
+  const list  = document.getElementById('catList');
+  const empty = document.getElementById('catEmpty');
+  if (!items.length) { list.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  const lbl = { acrilicas:'Acrílicas', gel:'Gel', nailart:'Nail Art' };
+  list.innerHTML = items.map(x => `
+    <div class="crow">
+      <div class="cthumb">${x.img ? `<img src="${x.img}" alt="">` : x.emoji || '💅'}</div>
+      <div class="cinfo">
+        <strong>${x.name}</strong>
+        <span class="ctag">${lbl[x.type]||x.type}</span>
+        <p>${x.desc}</p>
+        <span class="cprice">${x.price ? '$'+x.price : ''}</span>
+      </div>
+      <button class="btn dan sm" onclick="delCat(${x.id})">🗑️ Eliminar</button>
+    </div>`).join('');
+}
+function delCat(id) {
+  if (!confirm('¿Eliminar este diseño?')) return;
+  DB.setCatalog(DB.getCatalog().filter(x => x.id !== id));
+  renderCatalog(); toast('Diseño eliminado');
+}
+
+// =====================================================
+// SERVICIOS
+// =====================================================
+function initServices() { renderServices(); }
+function renderServices() {
+  document.getElementById('svcList').innerHTML = DB.getServices().map(s => `
+    <div class="scard">
+      <div class="shead">
+        <span class="sico">${s.icon}</span>
+        <div><strong>${s.name}</strong><div class="sprice">$${s.price} <em>${s.unit}</em></div></div>
+        <button class="btn sec sm" onclick="toggleSvc(${s.id})">✏️ Editar</button>
+      </div>
+      <div class="sedit" id="se${s.id}" style="display:none;">
+        <div class="fr2">
+          <div class="fg"><label>Ícono</label><input type="text" id="si${s.id}" value="${s.icon}" maxlength="4" style="font-size:20px;text-align:center;"></div>
+          <div class="fg"><label>Nombre</label><input type="text" id="sn${s.id}" value="${s.name}"></div>
+        </div>
+        <div class="fr2">
+          <div class="fg"><label>Precio ($)</label><input type="text" id="sp${s.id}" value="${s.price}"></div>
+          <div class="fg"><label>Unidad</label><input type="text" id="su${s.id}" value="${s.unit}"></div>
+        </div>
+        <div class="fg"><label>Descripción</label><textarea id="sd${s.id}" rows="2">${s.desc}</textarea></div>
+        <div class="fg"><label>Características (una por línea)</label><textarea id="sf${s.id}" rows="3">${s.features.join('\n')}</textarea></div>
+        <div class="frow">
+          <button class="btn pri" onclick="saveSvc(${s.id})">💾 Guardar</button>
+          <button class="btn sec" onclick="toggleSvc(${s.id})">Cancelar</button>
+          <button class="btn dan" onclick="delSvc(${s.id})">🗑️ Eliminar</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function toggleSvc(id) {
+  const el = document.getElementById('se'+id);
+  el.style.display = (el.style.display==='none'||!el.style.display) ? 'block' : 'none';
+}
+function saveSvc(id) {
+  const svcs = DB.getServices();
+  const i = svcs.findIndex(s => s.id === id);
+  if (i < 0) return;
+  svcs[i] = { ...svcs[i],
+    icon:     document.getElementById('si'+id).value.trim() || svcs[i].icon,
+    name:     document.getElementById('sn'+id).value.trim(),
+    price:    document.getElementById('sp'+id).value.trim(),
+    unit:     document.getElementById('su'+id).value.trim(),
+    desc:     document.getElementById('sd'+id).value.trim(),
+    features: document.getElementById('sf'+id).value.trim().split('\n').filter(Boolean),
+  };
+  DB.setServices(svcs); renderServices(); toast('Servicio actualizado ✨');
+}
+function addSvc() {
+  const svcs = DB.getServices();
+  const nid  = Date.now();
+  svcs.push({ id:nid, icon:'💅', name:'Nuevo Servicio', desc:'Descripción', price:'0', unit:'/ sesión', features:['Característica 1'] });
+  DB.setServices(svcs); renderServices();
+  setTimeout(() => toggleSvc(nid), 60);
+}
+function delSvc(id) {
+  if (!confirm('¿Eliminar este servicio?')) return;
+  DB.setServices(DB.getServices().filter(s => s.id !== id));
+  renderServices(); toast('Servicio eliminado');
+}
+
+// =====================================================
+// CITAS
+// =====================================================
+function initCitas() { renderCitas(); }
+function renderCitas(filter='todas') {
+  let apts = DB.getAppointments();
+  if (filter !== 'todas') apts = apts.filter(a => (a.status||'nueva') === filter);
+  const list  = document.getElementById('citasList');
+  const empty = document.getElementById('citasEmpty');
+  if (!apts.length) { list.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  list.innerHTML = apts.map(a => `
+    <div class="acard ${a.status||'nueva'}">
+      <div class="ahead">
+        <div>
+          <strong>${a.name}</strong>
+          <span class="abadge ${a.status||'nueva'}">${a.status==='confirmada'?'✅ Confirmada':'🆕 Nueva'}</span>
+        </div>
+        <div class="aacts">
+          <button class="btn ok sm" onclick="confirmCita(${a.id})">✅ Confirmar</button>
+          <button class="btn dan sm" onclick="delCita(${a.id})">🗑️</button>
+        </div>
+      </div>
+      <div class="adets">
+        <span>📞 ${a.phone}</span><span>📅 ${a.date}</span>
+        <span>⏰ ${a.time}</span><span>💅 ${a.service}</span>
+      </div>
+      ${a.notes ? `<p class="anotes">📝 ${a.notes}</p>` : ''}
+    </div>`).join('');
+}
+function filterCitas(btn, f) {
+  document.querySelectorAll('.aftab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active'); renderCitas(f);
+}
+function confirmCita(id) {
+  DB.setAppointments(DB.getAppointments().map(a => a.id===id ? {...a,status:'confirmada'} : a));
+  renderCitas(); updateStats(); toast('Cita confirmada ✅');
+}
+function delCita(id) {
+  if (!confirm('¿Eliminar esta cita?')) return;
+  DB.setAppointments(DB.getAppointments().filter(a => a.id !== id));
+  renderCitas(); updateStats(); toast('Cita eliminada');
+}
+function clearAllCitas() {
+  if (!confirm('¿Eliminar TODAS las citas?')) return;
+  DB.setAppointments([]); renderCitas(); updateStats(); toast('Citas eliminadas');
+}
+function updateStats() {
+  const apts = DB.getAppointments();
+  const nw   = apts.filter(a => (a.status||'nueva')==='nueva').length;
+  document.getElementById('sTotal').textContent   = apts.length;
+  document.getElementById('sNew').textContent     = nw;
+  document.getElementById('sConf').textContent    = apts.filter(a => a.status==='confirmada').length;
+  document.getElementById('badgeCit').textContent = nw;
+}
+
+// =====================================================
+// NEGOCIO
+// =====================================================
+function initBiz() {
+  const b = DB.getBusiness();
+  document.getElementById('bName').value  = b.name      || '';
+  document.getElementById('bPhone').value = b.phone     || '';
+  document.getElementById('bTag').value   = b.tagline   || '';
+  document.getElementById('bIg').value    = b.instagram || '';
+  document.getElementById('bAddr').value  = b.address   || '';
+  document.getElementById('bStat1').value = b.stats?.clients  || '500+';
+  document.getElementById('bStat2').value = b.stats?.years    || '3+';
+  document.getElementById('bStat3').value = b.stats?.quality  || '100%';
+}
+function saveBiz() {
+  DB.setBusiness({
+    name:      document.getElementById('bName').value.trim(),
+    phone:     document.getElementById('bPhone').value.trim(),
+    tagline:   document.getElementById('bTag').value.trim(),
+    instagram: document.getElementById('bIg').value.trim(),
+    address:   document.getElementById('bAddr').value.trim(),
+    stats: {
+      clients: document.getElementById('bStat1').value.trim(),
+      years:   document.getElementById('bStat2').value.trim(),
+      quality: document.getElementById('bStat3').value.trim(),
+    }
+  });
+  toast('Información guardada 🌸');
+}
+
+// =====================================================
+// INIT
+// =====================================================
+function initAll() {
+  initGallery();
+  initCatalog();
+  initServices();
+  initCitas();
+  initBiz();
+  updateStats();
+}
 </script>
 </body>
 </html>
