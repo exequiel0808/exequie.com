@@ -207,7 +207,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#e8d5dc;min-height
       <div class="pane active" id="pGal">
         <div class="card">
           <h3>Subir fotos</h3>
-          <p class="csub">Arrastra imágenes o haz clic. Puedes subir varias a la vez.</p>
+          <p class="csub">Arrastra imágenes o haz clic. Las imágenes se comprimen automáticamente para ahorrar espacio.</p>
           <div class="dz" id="dz">
             <div class="di">📤</div>
             <strong>Haz clic o arrastra fotos aquí</strong>
@@ -216,8 +216,10 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#e8d5dc;min-height
           </div>
         </div>
         <div class="card">
-          <h3>Fotos actuales</h3>
-          <p class="csub">Pasa el cursor sobre una foto y presiona 🗑️ para eliminarla.</p>
+          <div class="card-hd">
+            <div><h3>Fotos actuales</h3><p class="csub">Pasa el cursor sobre una foto y presiona 🗑️ para eliminarla.</p></div>
+            <button class="btn dan sm" onclick="clearStorage()">🧹 Liberar espacio</button>
+          </div>
           <div class="gg" id="galGrid"></div>
           <div class="empty" id="galEmpty"><div class="ei">🌸</div><p>No hay fotos todavía.</p></div>
         </div>
@@ -402,6 +404,26 @@ function showTab(id, btn) {
 }
 
 // =====================================================
+// COMPRIMIR IMAGEN (evita QuotaExceededError)
+// =====================================================
+function compressImage(file, maxW, quality, cb) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      let w = img.width, h = img.height;
+      if (w > maxW) { h = Math.round(h * maxW / w); w = maxW; }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      cb(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// =====================================================
 // TOAST
 // =====================================================
 function toast(msg) {
@@ -431,15 +453,13 @@ function initGallery() {
   });
 }
 function readGal(file) {
-  const r = new FileReader();
-  r.onload = e => {
+  compressImage(file, 800, 0.7, src => {
     const g = DB.getGallery();
-    g.unshift({ id: Date.now(), src: e.target.result, name: file.name });
+    g.unshift({ id: Date.now(), src, name: file.name });
     DB.setGallery(g);
     renderGallery();
     toast('Foto agregada 🌸');
-  };
-  r.readAsDataURL(file);
+  });
 }
 function renderGallery() {
   const imgs  = DB.getGallery();
@@ -469,13 +489,11 @@ function initCatalog() {
   renderCatalog();
   document.getElementById('catFile').addEventListener('change', function() {
     const f = this.files[0]; if (!f) return;
-    const r = new FileReader();
-    r.onload = e => {
-      pendingImg = e.target.result;
-      document.getElementById('catImg').src = e.target.result;
+    compressImage(f, 600, 0.75, src => {
+      pendingImg = src;
+      document.getElementById('catImg').src = src;
       document.getElementById('catPrev').style.display = 'block';
-    };
-    r.readAsDataURL(f);
+    });
     this.value = '';
   });
 }
@@ -678,6 +696,15 @@ function saveBiz() {
     }
   });
   toast('Información guardada 🌸');
+}
+
+function clearStorage() {
+  if (!confirm('Esto eliminará TODAS las fotos de galería y catálogo para liberar espacio. ¿Continuar?')) return;
+  DB.setGallery([]);
+  DB.setCatalog([]);
+  renderGallery();
+  renderCatalog();
+  toast('Espacio liberado 🧹');
 }
 
 // =====================================================
