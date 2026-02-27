@@ -207,7 +207,10 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#e8d5dc;min-height
       <div class="pane active" id="pGal">
         <div class="card">
           <h3>Subir fotos</h3>
-          <p class="csub">Arrastra imágenes o haz clic. Las imágenes se comprimen automáticamente para ahorrar espacio.</p>
+          <p class="csub">Las imágenes se comprimen automáticamente. Espacio usado: <strong id="storageUsed">calculando...</strong> / ~5MB</p>
+          <div style="background:rgba(255,255,255,.06);border-radius:8px;height:6px;margin-bottom:16px;overflow:hidden;">
+            <div id="storageBar" style="height:100%;background:linear-gradient(90deg,#22c55e,#c2185b);border-radius:8px;width:0%;transition:width .5s;"></div>
+          </div>
           <div class="dz" id="dz">
             <div class="di">📤</div>
             <strong>Haz clic o arrastra fotos aquí</strong>
@@ -329,7 +332,13 @@ const DB = {
     try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; }
     catch(e) { return def; }
   },
-  set(k, v) { localStorage.setItem(k, JSON.stringify(v)); },
+  set(k, v) {
+    try {
+      localStorage.setItem(k, JSON.stringify(v));
+    } catch(e) {
+      alert('⚠️ Espacio lleno. Ve a Galería y presiona "🧹 Liberar espacio" para borrar imágenes antiguas, luego intenta de nuevo.');
+    }
+  },
 
   getGallery()      { return this.get('glamGallery', []); },
   setGallery(d)     { this.set('glamGallery', d); },
@@ -453,11 +462,12 @@ function initGallery() {
   });
 }
 function readGal(file) {
-  compressImage(file, 800, 0.7, src => {
+  compressImage(file, 400, 0.4, src => {
     const g = DB.getGallery();
     g.unshift({ id: Date.now(), src, name: file.name });
     DB.setGallery(g);
     renderGallery();
+    updateStorageMeter();
     toast('Foto agregada 🌸');
   });
 }
@@ -489,7 +499,7 @@ function initCatalog() {
   renderCatalog();
   document.getElementById('catFile').addEventListener('change', function() {
     const f = this.files[0]; if (!f) return;
-    compressImage(f, 600, 0.75, src => {
+    compressImage(f, 400, 0.4, src => {
       pendingImg = src;
       document.getElementById('catImg').src = src;
       document.getElementById('catPrev').style.display = 'block';
@@ -523,6 +533,7 @@ function saveCat() {
   document.getElementById('catForm').style.display = 'none';
   pendingImg = null;
   renderCatalog();
+  updateStorageMeter();
   toast('¡Diseño guardado! 💅');
 }
 function renderCatalog() {
@@ -698,12 +709,31 @@ function saveBiz() {
   toast('Información guardada 🌸');
 }
 
+function updateStorageMeter() {
+  try {
+    let total = 0;
+    for (let k in localStorage) {
+      if (localStorage.hasOwnProperty(k)) total += localStorage[k].length * 2;
+    }
+    const kb   = Math.round(total / 1024);
+    const pct  = Math.min(100, Math.round((total / (5 * 1024 * 1024)) * 100));
+    const el   = document.getElementById('storageUsed');
+    const bar  = document.getElementById('storageBar');
+    if (el)  el.textContent = kb < 1024 ? kb + ' KB' : (kb/1024).toFixed(1) + ' MB';
+    if (bar) {
+      bar.style.width = pct + '%';
+      bar.style.background = pct > 80 ? '#ef4444' : pct > 50 ? '#f59e0b' : '#22c55e';
+    }
+  } catch(e) {}
+}
+
 function clearStorage() {
   if (!confirm('Esto eliminará TODAS las fotos de galería y catálogo para liberar espacio. ¿Continuar?')) return;
   DB.setGallery([]);
   DB.setCatalog([]);
   renderGallery();
   renderCatalog();
+  updateStorageMeter();
   toast('Espacio liberado 🧹');
 }
 
@@ -717,6 +747,7 @@ function initAll() {
   initCitas();
   initBiz();
   updateStats();
+  updateStorageMeter();
 }
 </script>
 </body>
