@@ -8,9 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --rose: #c2185b; --rose-light: #e91e8c; --blush: #fdf5f0;
-  --blush-mid: #f0e0d8; --gold: #c9a96e; --cream: #fdfaf7;
-  --dark: #1a0a0f; --text: #3d1a2a; --muted: #9e7a8a;
+  --rose: #b8922a; --rose-light: #d4aa40; --blush: #fdf9ee;
+  --blush-mid: #f0e4b8; --gold: #c9a84c; --cream: #fdfaf0;
+  --dark: #1a1408; --text: #2e2408; --muted: #7a6a40;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -18,12 +18,12 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);ove
 .cursor{position:fixed;width:10px;height:10px;background:var(--rose);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);}
 .cursor-ring{position:fixed;width:32px;height:32px;border:1.5px solid var(--rose);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:all .15s ease;opacity:.6;}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;}
-nav.scrolled{background:rgba(255,248,248,.95);backdrop-filter:blur(10px);padding:14px 60px;box-shadow:0 2px 30px rgba(194,24,91,.08);}
+nav.scrolled{background:rgba(255,248,248,.95);backdrop-filter:blur(10px);padding:14px 60px;box-shadow:0 2px 30px rgba(184,146,42,.08);}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.nav-logo img{height:70px;width:70px;object-fit:cover;border-radius:50%;border:2px solid var(--rose);box-shadow:0 2px 12px rgba(194,24,91,.2);}
+.nav-logo img{height:70px;width:70px;object-fit:cover;border-radius:50%;border:2px solid var(--rose);box-shadow:0 2px 12px rgba(184,146,42,.2);}
 .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--rose);letter-spacing:1px;}
 .nav-logo-text span{color:var(--gold);font-style:italic;}
-.footer-logo-img{height:72px;width:72px;object-fit:cover;border-radius:50%;border:2px solid var(--rose);margin:0 auto 12px;display:block;box-shadow:0 4px 20px rgba(194,24,91,.3);}
+.footer-logo-img{height:72px;width:72px;object-fit:cover;border-radius:50%;border:2px solid var(--rose);margin:0 auto 12px;display:block;box-shadow:0 4px 20px rgba(184,146,42,.3);}
 .nav-links{display:flex;gap:36px;list-style:none;}
 .nav-links a{text-decoration:none;color:var(--text);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:color .3s;}
 .nav-links a:hover{color:var(--rose);}
@@ -38,7 +38,7 @@ section{padding:100px 60px;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#fdfaf7 0%,#fdf5f0 40%,#fdfaf7 100%);}
-.hero-bg-shape{position:absolute;right:-100px;top:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(194,24,91,.08),transparent 70%);border-radius:50%;}
+.hero-bg-shape{position:absolute;right:-100px;top:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(184,146,42,.08),transparent 70%);border-radius:50%;}
 .hero-bg-shape2{position:absolute;left:-150px;bottom:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,169,110,.1),transparent 70%);border-radius:50%;}
 .petal{position:absolute;font-size:24px;opacity:.15;animation:floatPetal 8s ease-in-out infinite;}
 .petal:nth-child(1){left:5%;top:20%;}
@@ -48,14 +48,14 @@ section{padding:100px 60px;}
 .petal:nth-child(5){left:50%;top:10%;animation-delay:2s;font-size:16px;}
 @keyframes floatPetal{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-20px) rotate(15deg);}}
 .hero-content{position:relative;z-index:2;padding:0 60px;max-width:680px;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(194,24,91,.08);border:1px solid rgba(194,24,91,.2);color:var(--rose);padding:7px 18px;border-radius:30px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:28px;animation:fadeUp .8s ease both;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,146,42,.08);border:1px solid rgba(184,146,42,.2);color:var(--rose);padding:7px 18px;border-radius:30px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:28px;animation:fadeUp .8s ease both;}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,88px);line-height:1.05;font-weight:300;color:var(--dark);margin-bottom:20px;animation:fadeUp .8s .1s ease both;}
 .hero h1 em{color:var(--rose);font-style:italic;font-weight:600;}
 .hero h1 .gold{color:var(--gold);}
 .hero-sub{font-size:17px;color:var(--muted);font-weight:300;line-height:1.7;max-width:480px;margin-bottom:40px;animation:fadeUp .8s .2s ease both;}
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .8s .3s ease both;}
-.btn-primary{background:linear-gradient(135deg,var(--rose),var(--rose-light));color:#fff;padding:16px 36px;border-radius:40px;text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;transition:all .3s;box-shadow:0 8px 30px rgba(194,24,91,.3);display:inline-block;}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(194,24,91,.4);}
+.btn-primary{background:linear-gradient(135deg,var(--rose),var(--rose-light));color:#fff;padding:16px 36px;border-radius:40px;text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;transition:all .3s;box-shadow:0 8px 30px rgba(184,146,42,.3);display:inline-block;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(184,146,42,.4);}
 .btn-secondary{border:1.5px solid var(--rose);color:var(--rose);padding:16px 36px;border-radius:40px;text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;transition:all .3s;display:inline-block;}
 .btn-secondary:hover{background:var(--blush);transform:translateY(-3px);}
 .hero-stats{position:absolute;right:60px;bottom:80px;display:flex;gap:40px;animation:fadeUp .8s .4s ease both;}
@@ -64,7 +64,7 @@ section{padding:100px 60px;}
 .stat-label{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
 .hero-img-area{position:absolute;right:0;top:0;height:100%;width:45%;background:linear-gradient(135deg,rgba(248,187,208,.4),rgba(252,228,236,.6));clip-path:polygon(15% 0%,100% 0%,100% 100%,0% 100%);display:flex;align-items:center;justify-content:center;}
 .nail-showcase{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:60px 40px 60px 80px;}
-.nail-card-mini{background:#fff;border-radius:16px;padding:16px;text-align:center;box-shadow:0 4px 20px rgba(194,24,91,.1);transition:transform .3s;}
+.nail-card-mini{background:#fff;border-radius:16px;padding:16px;text-align:center;box-shadow:0 4px 20px rgba(184,146,42,.1);transition:transform .3s;}
 .nail-card-mini:hover{transform:translateY(-4px);}
 .nail-emoji{font-size:36px;display:block;margin-bottom:8px;}
 .nail-card-mini p{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
@@ -75,7 +75,7 @@ section{padding:100px 60px;}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1100px;margin:0 auto;}
 .service-card{background:var(--cream);border-radius:24px;padding:40px 32px;text-align:center;position:relative;overflow:hidden;transition:all .4s;border:1px solid transparent;}
 .service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--blush),var(--cream));opacity:0;transition:opacity .4s;}
-.service-card:hover{transform:translateY(-8px);border-color:rgba(194,24,91,.15);box-shadow:0 20px 60px rgba(194,24,91,.12);}
+.service-card:hover{transform:translateY(-8px);border-color:rgba(184,146,42,.15);box-shadow:0 20px 60px rgba(184,146,42,.12);}
 .service-card:hover::before{opacity:1;}
 .service-icon{font-size:48px;margin-bottom:20px;display:block;position:relative;z-index:1;}
 .service-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--dark);margin-bottom:12px;position:relative;z-index:1;}
@@ -83,7 +83,7 @@ section{padding:100px 60px;}
 .service-price{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--rose);position:relative;z-index:1;}
 .service-price span{font-size:14px;font-family:'Jost',sans-serif;font-weight:400;color:var(--muted);}
 .service-features{list-style:none;margin-top:16px;position:relative;z-index:1;}
-.service-features li{font-size:13px;color:var(--muted);padding:5px 0;border-bottom:1px solid rgba(194,24,91,.07);}
+.service-features li{font-size:13px;color:var(--muted);padding:5px 0;border-bottom:1px solid rgba(184,146,42,.07);}
 .service-features li::before{content:'✦';color:var(--rose);margin-right:8px;font-size:10px;}
 /* CATALOG */
 .catalog{background:var(--cream);}
@@ -92,11 +92,11 @@ section{padding:100px 60px;}
 .filter-btn{padding:9px 22px;border-radius:30px;border:1.5px solid var(--blush-mid);background:transparent;color:var(--muted);font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Jost',sans-serif;}
 .filter-btn.active,.filter-btn:hover{background:var(--rose);border-color:var(--rose);color:#fff;}
 .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;max-width:1200px;margin:0 auto;}
-.catalog-item{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(194,24,91,.06);transition:all .4s;}
-.catalog-item:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(194,24,91,.15);}
+.catalog-item{border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(184,146,42,.06);transition:all .4s;}
+.catalog-item:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(184,146,42,.15);}
 .catalog-img{height:220px;background:linear-gradient(135deg,var(--blush),var(--blush-mid));display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden;}
 .catalog-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
-.catalog-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(194,24,91,.7),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:20px;}
+.catalog-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(184,146,42,.7),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:20px;}
 .catalog-item:hover .catalog-overlay{opacity:1;}
 .catalog-overlay-text{color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;}
 .catalog-info{padding:18px 20px;}
@@ -113,26 +113,26 @@ section{padding:100px 60px;}
 .gallery-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
 .gallery-item.tall{grid-row:span 2;}
 .gallery-item.wide{grid-column:span 2;}
-.gallery-placeholder{font-size:30px;color:rgba(194,24,91,.3);}
-.gallery-empty-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(194,24,91,.5);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
+.gallery-placeholder{font-size:30px;color:rgba(184,146,42,.3);}
+.gallery-empty-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(184,146,42,.5);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
 /* BOOKING */
 .booking{background:linear-gradient(135deg,#fdfaf7,#fdf5f0);position:relative;overflow:hidden;}
 .booking-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto;position:relative;z-index:1;}
 .booking-perks{margin-top:40px;display:flex;flex-direction:column;gap:16px;}
 .perk{display:flex;align-items:center;gap:14px;}
-.perk-icon{width:44px;height:44px;background:rgba(194,24,91,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.perk-icon{width:44px;height:44px;background:rgba(184,146,42,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
 .perk p{font-size:14px;color:var(--muted);line-height:1.5;}
 .perk p strong{color:var(--text);display:block;margin-bottom:2px;}
-.booking-form-wrap{background:#fff;border-radius:28px;padding:44px;box-shadow:0 20px 80px rgba(194,24,91,.12);}
+.booking-form-wrap{background:#fff;border-radius:28px;padding:44px;box-shadow:0 20px 80px rgba(184,146,42,.12);}
 .booking-form-wrap h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--dark);margin-bottom:28px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .form-group{margin-bottom:18px;}
 .form-group label{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px;}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;border:1.5px solid var(--blush-mid);border-radius:12px;background:var(--cream);font-family:'Jost',sans-serif;font-size:14px;color:var(--text);transition:border-color .3s;outline:none;}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(194,24,91,.08);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(184,146,42,.08);}
 .form-group textarea{height:90px;resize:none;}
 .btn-submit{width:100%;padding:16px;background:linear-gradient(135deg,var(--rose),var(--rose-light));color:#fff;border:none;border-radius:40px;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all .3s;font-family:'Jost',sans-serif;margin-top:8px;}
-.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(194,24,91,.35);}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(184,146,42,.35);}
 .form-success{display:none;text-align:center;padding:30px;background:rgba(34,197,94,.06);border-radius:16px;border:1px solid rgba(34,197,94,.2);}
 .form-success .check{font-size:48px;margin-bottom:12px;}
 .form-success h4{font-family:'Cormorant Garamond',serif;font-size:24px;color:#166534;margin-bottom:8px;}
@@ -277,15 +277,25 @@ footer{background:var(--dark);color:#fff;padding:60px;text-align:center;}
         </div>
         <div class="form-group"><label>Servicio</label><select id="bookService"><option value="">Elige un servicio...</option></select></div>
         <div class="form-row">
-          <div class="form-group"><label>Fecha</label><input type="date" id="bookDate"></div>
+          <div class="form-group"><label>Fecha</label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <select id="bookDay" onchange="updateAvailableTimes()">
+                <option value="">Día...</option>
+              </select>
+              <select id="bookMonth" onchange="updateAvailableTimes()">
+                <option value="">Mes...</option>
+                <option value="01">Enero</option><option value="02">Febrero</option>
+                <option value="03">Marzo</option><option value="04">Abril</option>
+                <option value="05">Mayo</option><option value="06">Junio</option>
+                <option value="07">Julio</option><option value="08">Agosto</option>
+                <option value="09">Septiembre</option><option value="10">Octubre</option>
+                <option value="11">Noviembre</option><option value="12">Diciembre</option>
+              </select>
+            </div>
+          </div>
           <div class="form-group"><label>Hora</label>
             <select id="bookTime">
-              <option value="">Hora...</option>
-              <option>7:00 AM</option><option>8:00 AM</option><option>9:00 AM</option>
-              <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
-              <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
-              <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
-              <option>7:00 PM</option>
+              <option value="">Selecciona fecha primero</option>
             </select>
           </div>
         </div>
@@ -339,7 +349,7 @@ const DB = {
   },
   getAppointments(){ return this.get('glamAppointments',[]); },
   getBusiness(){
-    return this.get('glamBusiness',{name:'WS Nails Studio',phone:'50372349174',tagline:'Arte en tus manos, belleza real.',stats:{clients:'500+',years:'3+',quality:'100%'}});
+    return this.get('glamBusiness',{name:'WS Nails Studio',phone:'50372349174',tagline:'Arte en tus manos, belleza real.',stats:{clients:'11+',years:'1',quality:'100%'}});
   },
   addAppointment(a){
     const list=this.getAppointments();
@@ -432,20 +442,41 @@ function renderBusiness(){
   }
 }
 
+// ===================== HORAS DISPONIBLES =====================
+const ALL_TIMES=['7:00 AM','8:00 AM','9:00 AM','10:00 AM','11:00 AM',
+  '12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM','6:00 PM','7:00 PM'];
+
+function updateAvailableTimes(){
+  const d=document.getElementById('bookDay').value;
+  const m=document.getElementById('bookMonth').value;
+  const sel=document.getElementById('bookTime');
+  if(!d||!m){sel.innerHTML='<option value="">Selecciona fecha primero</option>';return;}
+  const key=d+'/'+m;
+  const taken=DB.getAppointments().filter(a=>a.date===key).map(a=>a.time);
+  sel.innerHTML='<option value="">Hora...</option>'+
+    ALL_TIMES.map(t=>taken.includes(t)
+      ? '<option value="'+t+'" disabled style="color:#bbb;background:#f9f9f9">'+t+' — Reservado</option>'
+      : '<option value="'+t+'">'+t+'</option>'
+    ).join('');
+}
+
 // ===================== BOOKING =====================
 async function submitBooking(){
   const name=document.getElementById('bookName').value.trim();
   const phone=document.getElementById('bookPhone').value.trim();
   const service=document.getElementById('bookService').value;
-  const date=document.getElementById('bookDate').value;
+  const day=document.getElementById('bookDay').value;
+  const month=document.getElementById('bookMonth').value;
   const time=document.getElementById('bookTime').value;
   const notes=document.getElementById('bookNotes').value.trim();
-  if(!name||!phone||!service||!date||!time){alert('Por favor completa todos los campos 🌸');return;}
+  if(!name||!phone||!service||!day||!month||!time){alert('Por favor completa todos los campos 🌸');return;}
+  const date=day+'/'+month;
+  const taken=DB.getAppointments().filter(a=>a.date===date&&a.time===time);
+  if(taken.length>0){alert('La hora '+time+' ya está reservada para ese día. Por favor elige otra hora 🌸');return;}
   DB.addAppointment({name,phone,service,date,time,notes});
   const btn=document.querySelector('.btn-submit');
   btn.textContent='⏳ Enviando...'; btn.disabled=true;
-  // n8n webhook (opcional) — cambia la URL cuando lo tengas
-  try{ await fetch('https://TU-N8N.com/webhook/glam-nails-cita',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre:name,telefono:phone,servicio:service,fecha:date,hora:time,notas:notes})}); }catch(e){}
+  try{await fetch('https://TU-N8N.com/webhook/glam-nails-cita',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre:name,telefono:phone,servicio:service,fecha:date,hora:time,notas:notes})});}catch(e){}
   document.getElementById('bookingForm').style.display='none';
   document.getElementById('bookingSuccess').style.display='block';
 }
@@ -457,7 +488,13 @@ function closeLightbox(){document.getElementById('lightbox').classList.remove('o
 // ===================== INIT =====================
 document.addEventListener('DOMContentLoaded',()=>{
   renderBusiness(); renderServices(); renderCatalog(); renderGallery();
-  document.getElementById('bookDate').min=new Date().toISOString().split('T')[0];
+  // Populate day selector
+  const dayEl=document.getElementById('bookDay');
+  for(let i=1;i<=31;i++){
+    const o=document.createElement('option');
+    o.value=String(i).padStart(2,'0'); o.textContent=i;
+    dayEl.appendChild(o);
+  }
 });
 </script>
 </body>
