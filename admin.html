@@ -3,37 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin — WS Nails Studio</title>
+<title>Admin — WS Nails</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--rose:#b8922a;--rose-l:#d4aa40;--gold:#c9a84c;--bg:#0d0c06;--sw:240px;}
+:root{--g:#b8922a;--gl:#d4aa40;--gold:#c9a84c;--bg:#0d0c06;--sw:240px;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height:100vh;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d0;min-height:100vh;}
 /* LOGIN */
 #loginScreen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 60% 30%,rgba(184,146,42,.12),transparent 60%),var(--bg);}
 .lbox{background:rgba(255,255,255,.04);border:1px solid rgba(184,146,42,.2);border-radius:28px;padding:52px 44px;width:100%;max-width:420px;text-align:center;box-shadow:0 32px 80px rgba(0,0,0,.4);}
-.llogo{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--rose);margin-bottom:4px;}
+.llogo{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--g);margin-bottom:4px;}
 .llogo span{color:var(--gold);font-style:italic;}
 .lsub{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:2px;text-transform:uppercase;margin-bottom:32px;}
 .licon{font-size:50px;margin-bottom:16px;}
 .lbox h2{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;margin-bottom:8px;}
 .lbox>p{font-size:14px;color:rgba(255,255,255,.35);margin-bottom:24px;}
 .lbox input[type=password]{width:100%;padding:14px 18px;background:rgba(255,255,255,.06);border:1.5px solid rgba(184,146,42,.3);border-radius:14px;font-family:'Jost',sans-serif;font-size:15px;color:#fff;outline:none;letter-spacing:3px;text-align:center;transition:border-color .3s;margin-bottom:14px;}
-.lbox input[type=password]:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(184,146,42,.1);}
-.lbox input::placeholder{letter-spacing:1px;color:rgba(255,255,255,.2);}
-.lbtn{width:100%;padding:14px;background:linear-gradient(135deg,var(--rose),var(--rose-l));color:#fff;border:none;border-radius:40px;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:'Jost',sans-serif;transition:all .3s;}
-.lbtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(184,146,42,.35);}
-.lerr{display:none;align-items:center;gap:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:10px 16px;border-radius:10px;font-size:13px;margin-top:12px;text-align:left;}
+.lbox input[type=password]:focus{border-color:var(--g);}
+.lbtn{width:100%;padding:14px;background:linear-gradient(135deg,var(--g),var(--gl));color:#fff;border:none;border-radius:40px;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:'Jost',sans-serif;transition:all .3s;}
+.lbtn:hover{transform:translateY(-2px);}
+.lerr{display:none;align-items:center;gap:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:10px 16px;border-radius:10px;font-size:13px;margin-top:12px;}
 .lback{display:inline-block;margin-top:18px;color:rgba(255,255,255,.2);font-size:13px;text-decoration:none;}
-.lback:hover{color:var(--rose);}
+.lback:hover{color:var(--g);}
 /* PANEL */
 #adminPanel{display:none;}
 .layout{display:flex;min-height:100vh;}
-/* SIDEBAR */
 .sb{width:var(--sw);background:rgba(255,255,255,.03);border-right:1px solid rgba(184,146,42,.12);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100;}
 .sb-brand{padding:26px 22px 18px;border-bottom:1px solid rgba(184,146,42,.1);}
-.sb-logo{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--rose);}
+.sb-logo{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--g);}
 .sb-logo span{color:var(--gold);font-style:italic;}
 .sb-tag{font-size:10px;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 .sb-nav{flex:1;padding:14px 10px;}
@@ -41,17 +39,15 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
 .tbtn{width:100%;display:flex;align-items:center;gap:10px;padding:10px 12px;background:none;border:none;color:rgba(255,255,255,.4);font-family:'Jost',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border-radius:10px;transition:all .2s;text-align:left;margin-bottom:2px;position:relative;}
 .tbtn:hover{background:rgba(184,146,42,.08);color:rgba(255,255,255,.7);}
 .tbtn.active{background:rgba(184,146,42,.15);color:#fff;}
-.tbtn.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:3px;background:var(--rose);border-radius:0 3px 3px 0;}
-.badge{margin-left:auto;background:var(--rose);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;}
+.tbtn.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:3px;background:var(--g);border-radius:0 3px 3px 0;}
+.badge{margin-left:auto;background:var(--g);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;}
 .sb-foot{padding:14px 10px;border-top:1px solid rgba(184,146,42,.1);}
 .sb-back{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.25);font-size:13px;text-decoration:none;padding:8px 12px;border-radius:8px;transition:all .2s;}
 .sb-back:hover{color:rgba(255,255,255,.55);background:rgba(255,255,255,.04);}
-/* MAIN */
 .main{margin-left:var(--sw);flex:1;padding:34px 38px;}
 .topbar{margin-bottom:28px;}
 .topbar h1{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#fff;}
 .topbar p{font-size:13px;color:rgba(255,255,255,.3);margin-top:3px;}
-/* TABS */
 .pane{display:none;}
 .pane.active{display:block;}
 /* CARD */
@@ -59,15 +55,14 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
 .card h3{font-family:'Cormorant Garamond',serif;font-size:21px;color:#fff;margin-bottom:5px;}
 .csub{font-size:13px;color:rgba(255,255,255,.28);margin-bottom:18px;}
 .card-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
-.card-hd h3,.card-hd .csub{margin-bottom:2px;}
 /* DROP */
 .dz{border:2px dashed rgba(184,146,42,.28);border-radius:14px;padding:34px;text-align:center;cursor:pointer;transition:all .3s;position:relative;background:rgba(184,146,42,.02);}
-.dz:hover,.dz.over{border-color:var(--rose);background:rgba(184,146,42,.07);}
+.dz:hover,.dz.over{border-color:var(--g);background:rgba(184,146,42,.07);}
 .dz input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
 .dz .di{font-size:36px;margin-bottom:8px;}
 .dz strong{color:rgba(255,255,255,.65);font-size:14px;display:block;margin-bottom:4px;}
 .dz p{color:rgba(255,255,255,.28);font-size:13px;}
-/* GALLERY GRID */
+/* GALLERY */
 .gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:18px;}
 .gcard{border-radius:11px;overflow:hidden;aspect-ratio:1;position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(184,146,42,.1);}
 .gcard img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -100,6 +95,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
 .shead strong{color:#fff;font-size:15px;display:block;}
 .sprice{font-size:13px;color:var(--gold);}
 .sedit{margin-top:16px;padding-top:16px;border-top:1px solid rgba(184,146,42,.1);}
+/* SERVICE IMAGE */
+.simg-wrap{display:none;margin-bottom:12px;}
+.simg-wrap img{width:100%;max-height:120px;object-fit:cover;border-radius:8px;display:block;}
 /* APPOINTMENTS */
 .aftabs{display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap;}
 .aftab{padding:6px 16px;border-radius:20px;border:1px solid rgba(184,146,42,.2);background:none;color:rgba(255,255,255,.38);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all .2s;}
@@ -117,21 +115,21 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
 /* STATS */
 .sbar{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
 .sbox{background:rgba(255,255,255,.04);border:1px solid rgba(184,146,42,.1);border-radius:13px;padding:16px 18px;}
-.sval{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--rose);font-weight:700;}
+.sval{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--g);font-weight:700;}
 .slbl{font-size:11px;color:rgba(255,255,255,.28);letter-spacing:1px;text-transform:uppercase;margin-top:3px;}
-/* FORM ELEMENTS */
+/* FORM */
 .fg{margin-bottom:12px;}
 .fg label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600;margin-bottom:5px;}
-.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;background:rgba(255,255,255,.06);border:1.5px solid rgba(184,146,42,.22);border-radius:9px;font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,.88);outline:none;transition:border-color .3s;}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(184,146,42,.09);}
-.fg select option{background:#1a0a0f;color:#fff;}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 13px;background:rgba(255,255,255,.06);border:1.5px solid rgba(184,146,42,.22);border-radius:9px;font-family:'Jost',sans-serif;font-size:13px;color:#ede8d0;outline:none;transition:border-color .3s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--g);}
+.fg select option{background:#1a1408;color:#ede8d0;}
 .fg textarea{resize:vertical;}
 .fr2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .frow{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
 /* BUTTONS */
 .btn{padding:8px 16px;border-radius:28px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;transition:all .2s;display:inline-flex;align-items:center;gap:5px;}
-.btn.pri{background:linear-gradient(135deg,var(--rose),var(--rose-l));color:#fff;}
-.btn.pri:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(184,146,42,.28);}
+.btn.pri{background:linear-gradient(135deg,var(--g),var(--gl));color:#fff;}
+.btn.pri:hover{transform:translateY(-1px);}
 .btn.sec{background:rgba(255,255,255,.07);color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.1);}
 .btn.sec:hover{background:rgba(255,255,255,.11);color:#fff;}
 .btn.dan{background:rgba(239,68,68,.1);color:#fca5a5;border:1px solid rgba(239,68,68,.2);}
@@ -141,14 +139,15 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
 .btn.sm{padding:5px 11px;font-size:10px;}
 /* BIZ */
 .bsep{display:block;color:rgba(255,255,255,.38);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin:20px 0 12px;padding-top:20px;border-top:1px solid rgba(184,146,42,.07);}
-.bsep:first-child{margin-top:0;padding-top:0;border-top:none;}
 /* EMPTY */
 .empty{text-align:center;padding:36px;color:rgba(255,255,255,.2);}
 .empty .ei{font-size:38px;margin-bottom:10px;}
-.empty p{font-size:13px;}
+/* UPLOAD PROGRESS */
+.upload-progress{display:none;background:rgba(184,146,42,.1);border:1px solid rgba(184,146,42,.2);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:13px;color:rgba(255,255,255,.6);}
 /* TOAST */
 #toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(18px);background:rgba(34,197,94,.92);color:#fff;padding:11px 26px;border-radius:28px;font-size:13px;font-weight:600;pointer-events:none;opacity:0;transition:all .3s;z-index:9999;white-space:nowrap;}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+#toast.error{background:rgba(239,68,68,.92);}
 @media(max-width:768px){.sb{display:none;}.main{margin-left:0;padding:18px;}.sbar,.fr2{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -194,7 +193,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
     <main class="main">
       <div class="topbar">
         <h1 id="ptitle">Galería de Fotos</h1>
-        <p id="psub">Administra las fotos de la galería</p>
+        <p id="psub">Administra las fotos de la galería del sitio</p>
       </div>
 
       <div class="sbar" id="statsBar" style="display:none;">
@@ -207,21 +206,18 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
       <div class="pane active" id="pGal">
         <div class="card">
           <h3>Subir fotos</h3>
-          <p class="csub">Las imágenes se comprimen automáticamente. Espacio usado: <strong id="storageUsed">calculando...</strong> / ~5MB</p>
-          <div style="background:rgba(255,255,255,.06);border-radius:8px;height:6px;margin-bottom:16px;overflow:hidden;">
-            <div id="storageBar" style="height:100%;background:linear-gradient(90deg,#22c55e,#b8922a);border-radius:8px;width:0%;transition:width .5s;"></div>
-          </div>
+          <p class="csub">Las fotos se guardan en Supabase Storage. Arrastra o haz clic para seleccionar.</p>
           <div class="dz" id="dz">
             <div class="di">📤</div>
             <strong>Haz clic o arrastra fotos aquí</strong>
             <p>JPG, PNG, WEBP</p>
             <input type="file" id="galInput" accept="image/*" multiple>
           </div>
+          <div class="upload-progress" id="galProgress">⏳ Subiendo imagen...</div>
         </div>
         <div class="card">
           <div class="card-hd">
-            <div><h3>Fotos actuales</h3><p class="csub">Pasa el cursor sobre una foto y presiona 🗑️ para eliminarla.</p></div>
-            <button class="btn dan sm" onclick="clearStorage()">🧹 Liberar espacio</button>
+            <div><h3>Fotos actuales</h3><p class="csub">Pasa el cursor y presiona 🗑️ para eliminar.</p></div>
           </div>
           <div class="gg" id="galGrid"></div>
           <div class="empty" id="galEmpty"><div class="ei">🌸</div><p>No hay fotos todavía.</p></div>
@@ -232,13 +228,14 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
       <div class="pane" id="pCat">
         <div class="card">
           <div class="card-hd">
-            <div><h3>Diseños del catálogo</h3><p class="csub">Agrega diseños con foto, nombre y precio.</p></div>
+            <div><h3>Diseños del catálogo</h3><p class="csub">Agrega diseños con foto desde tu computadora.</p></div>
             <button class="btn pri" onclick="toggleCatForm()">+ Agregar diseño</button>
           </div>
           <div id="catForm" style="display:none;">
             <h4>✦ Nuevo diseño</h4>
             <div id="catPrev"><img id="catImg" src="" alt=""></div>
             <label class="pick">📷 Seleccionar imagen (opcional)<input type="file" id="catFile" accept="image/*" style="display:none;"></label>
+            <div class="upload-progress" id="catProgress">⏳ Subiendo imagen a Supabase...</div>
             <div class="fr2">
               <div class="fg"><label>Nombre *</label><input type="text" id="catName" placeholder="Ej: French Glam"></div>
               <div class="fg"><label>Categoría</label>
@@ -260,7 +257,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
             </div>
           </div>
           <div id="catList"></div>
-          <div class="empty" id="catEmpty"><div class="ei">💅</div><p>No hay diseños personalizados todavía.</p></div>
+          <div class="empty" id="catEmpty"><div class="ei">💅</div><p>No hay diseños todavía.</p></div>
         </div>
       </div>
 
@@ -268,7 +265,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
       <div class="pane" id="pSvc">
         <div class="card">
           <div class="card-hd">
-            <div><h3>Servicios y Precios</h3><p class="csub">Edita nombre, precio y descripción de cada servicio.</p></div>
+            <div><h3>Servicios y Precios</h3><p class="csub">Edita, agrega o elimina servicios. Puedes agregar imagen a cada uno.</p></div>
             <button class="btn pri" onclick="addSvc()">+ Nuevo servicio</button>
           </div>
           <div id="svcList"></div>
@@ -279,7 +276,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
       <div class="pane" id="pCit">
         <div class="card">
           <div class="card-hd">
-            <div><h3>Citas recibidas</h3><p class="csub">Gestiona y confirma las reservas.</p></div>
+            <div><h3>Citas recibidas</h3><p class="csub">Todas las citas guardadas en Supabase.</p></div>
             <button class="btn dan sm" onclick="clearAllCitas()">🗑️ Limpiar todo</button>
           </div>
           <div class="aftabs">
@@ -300,23 +297,22 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
           <span class="bsep">Datos principales</span>
           <div class="fr2">
             <div class="fg"><label>Nombre del negocio</label><input type="text" id="bName" placeholder="WS Nails Studio"></div>
-            <div class="fg"><label>WhatsApp (solo números)</label><input type="tel" id="bPhone" placeholder="50312345678"></div>
+            <div class="fg"><label>WhatsApp (solo números)</label><input type="tel" id="bPhone" placeholder="50372349174"></div>
           </div>
           <div class="fg"><label>Slogan</label><input type="text" id="bTag" placeholder="Arte en tus manos, belleza real."></div>
           <div class="fr2">
-            <div class="fg"><label>Instagram</label><input type="text" id="bIg" placeholder="@glamNails"></div>
+            <div class="fg"><label>Instagram</label><input type="text" id="bIg" placeholder="@wsNails"></div>
             <div class="fg"><label>Dirección</label><input type="text" id="bAddr" placeholder="Ciudad, país"></div>
           </div>
           <span class="bsep">Estadísticas del inicio</span>
           <div class="fr2">
-            <div class="fg"><label>Clientas felices</label><input type="text" id="bStat1" placeholder="500+"></div>
-            <div class="fg"><label>Años de experiencia</label><input type="text" id="bStat2" placeholder="3+"></div>
+            <div class="fg"><label>Clientas felices</label><input type="text" id="bStat1" placeholder="11+"></div>
+            <div class="fg"><label>Años de experiencia</label><input type="text" id="bStat2" placeholder="1"></div>
           </div>
-          <div class="fg" style="max-width:250px;"><label>3er stat</label><input type="text" id="bStat3" placeholder="100%"></div>
+          <div class="fg" style="max-width:250px;"><label>Calidad / 3er stat</label><input type="text" id="bStat3" placeholder="100%"></div>
           <div style="margin-top:18px;"><button class="btn pri" onclick="saveBiz()">💾 Guardar información</button></div>
         </div>
       </div>
-
     </main>
   </div>
 </div>
@@ -324,319 +320,321 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:#ede8d8;min-height
 <div id="toast"></div>
 
 <script>
-// =====================================================
-// BASE DE DATOS (localStorage)
-// =====================================================
-const DB = {
-  get(k, def) {
-    try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; }
-    catch(e) { return def; }
-  },
-  set(k, v) {
-    try {
-      localStorage.setItem(k, JSON.stringify(v));
-    } catch(e) {
-      alert('⚠️ Espacio lleno. Ve a Galería y presiona "🧹 Liberar espacio" para borrar imágenes antiguas, luego intenta de nuevo.');
-    }
-  },
+// ===================== SUPABASE =====================
+const SB_URL='https://exevxxsxrneybfcbmzkq.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4ZXZ4eHN4cm5leWJmY2JtemtxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3MTEwNTEsImV4cCI6MjA4OTI4NzA1MX0.pNEYHw9GJUmn6heuuD6Fuql39NNpCCNe7WKpYZPsKfI';
+const H={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json'};
 
-  getGallery()      { return this.get('glamGallery', []); },
-  setGallery(d)     { this.set('glamGallery', d); },
-  getCatalog()      { return this.get('glamCatalog', []); },
-  setCatalog(d)     { this.set('glamCatalog', d); },
-  getAppointments() { return this.get('glamAppointments', []); },
-  setAppointments(d){ this.set('glamAppointments', d); },
+async function sbGet(table,params={}){
+  let url=`${SB_URL}/rest/v1/${table}?`;
+  if(params.select) url+=`select=${params.select}&`;
+  if(params.filter) url+=`${params.filter}&`;
+  if(params.order)  url+=`order=${params.order}&`;
+  const r=await fetch(url,{headers:H});
+  return r.ok?r.json():[];
+}
+async function sbPost(table,body){
+  const r=await fetch(`${SB_URL}/rest/v1/${table}`,{method:'POST',headers:{...H,'Prefer':'return=representation'},body:JSON.stringify(body)});
+  return r.ok?r.json():null;
+}
+async function sbPatch(table,id,body){
+  const r=await fetch(`${SB_URL}/rest/v1/${table}?id=eq.${id}`,{method:'PATCH',headers:{...H,'Prefer':'return=representation'},body:JSON.stringify(body)});
+  return r.ok?r.json():null;
+}
+async function sbDelete(table,id){
+  const r=await fetch(`${SB_URL}/rest/v1/${table}?id=eq.${id}`,{method:'DELETE',headers:H});
+  return r.ok;
+}
+async function sbDeleteAll(table){
+  const r=await fetch(`${SB_URL}/rest/v1/${table}?id=gte.0`,{method:'DELETE',headers:H});
+  return r.ok;
+}
 
-  getServices() {
-    return this.get('glamServices', [
-      {id:1, icon:'💅', name:'Uñas Acrílicas', desc:'Extensión y modelado de larga duración.', price:'45', unit:'/ sesión', features:['Diseño personalizado','Duración 3-4 semanas','Materiales premium']},
-      {id:2, icon:'✨', name:'Uñas en Gel',    desc:'Acabado brillante y natural.',             price:'38', unit:'/ sesión', features:['Brillo duradero','Duración 2-3 semanas','Curado con LED']},
-      {id:3, icon:'🎨', name:'Nail Art',       desc:'Diseños artísticos únicos.',               price:'25', unit:'+ base',  features:['Diseños exclusivos','Accesorios premium','Tendencias actuales']},
-    ]);
-  },
-  setServices(d) { this.set('glamServices', d); },
+// Upload image to Supabase Storage, returns public URL
+async function uploadImage(file, folder){
+  const ext = file.name.split('.').pop();
+  const path = `${folder}/${Date.now()}.${ext}`;
+  const r = await fetch(`${SB_URL}/storage/v1/object/imagenes/${path}`,{
+    method:'POST',
+    headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type},
+    body:file
+  });
+  if(!r.ok) return null;
+  return `${SB_URL}/storage/v1/object/public/imagenes/${path}`;
+}
 
-  getBusiness() {
-    return this.get('glamBusiness', {
-      name:'WS Nails Studio', phone:'50372349174',
-      tagline:'Arte en tus manos, belleza real.',
-      instagram:'', address:'',
-      stats:{ clients:'11+', years:'1', quality:'100%' }
-    });
-  },
-  setBusiness(d) { this.set('glamBusiness', d); },
-};
-
-// =====================================================
-// LOGIN
-// =====================================================
-const PWD = 'glam2025'; // 🔒 Cambia aquí tu contraseña
-
-function checkLogin() {
-  const v = document.getElementById('adminPass').value;
-  if (v === PWD) {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('adminPanel').style.display  = 'block';
+// ===================== LOGIN =====================
+const PWD='glam2025';
+function checkLogin(){
+  if(document.getElementById('adminPass').value===PWD){
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('adminPanel').style.display='block';
     initAll();
   } else {
-    const e = document.getElementById('loginErr');
-    e.style.display = 'flex';
-    document.getElementById('adminPass').value = '';
-    document.getElementById('adminPass').focus();
-    setTimeout(() => e.style.display = 'none', 3000);
+    const e=document.getElementById('loginErr');
+    e.style.display='flex';
+    document.getElementById('adminPass').value='';
+    setTimeout(()=>e.style.display='none',3000);
   }
 }
-document.getElementById('adminPass').addEventListener('keydown', e => {
-  if (e.key === 'Enter') checkLogin();
-});
+document.getElementById('adminPass').addEventListener('keydown',e=>{if(e.key==='Enter')checkLogin();});
 
-// =====================================================
-// TABS
-// =====================================================
-const TABS = {
-  pGal: ['Galería de Fotos',     'Administra las fotos de la galería del sitio'],
-  pCat: ['Catálogo de Diseños',  'Agrega diseños con foto, nombre y precio'],
-  pSvc: ['Servicios & Precios',  'Edita nombre, precio y descripción de cada servicio'],
-  pCit: ['Citas Recibidas',      'Gestiona y confirma las reservas de clientas'],
-  pBiz: ['Mi Negocio',           'Nombre, WhatsApp, redes sociales y estadísticas'],
+// ===================== TABS =====================
+const TABS={
+  pGal:['Galería de Fotos','Administra las fotos de la galería del sitio'],
+  pCat:['Catálogo de Diseños','Agrega y elimina diseños con foto desde tu computadora'],
+  pSvc:['Servicios & Precios','Edita, agrega o elimina servicios con imagen'],
+  pCit:['Citas Recibidas','Todas las citas guardadas en Supabase en tiempo real'],
+  pBiz:['Mi Negocio','Nombre, WhatsApp, redes sociales y estadísticas'],
 };
-function showTab(id, btn) {
-  document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tbtn').forEach(b => b.classList.remove('active'));
+function showTab(id,btn){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
-  const [t, s] = TABS[id] || ['',''];
-  document.getElementById('ptitle').textContent = t;
-  document.getElementById('psub').textContent   = s;
-  document.getElementById('statsBar').style.display = id === 'pCit' ? 'grid' : 'none';
-  if (id === 'pCit') updateStats();
+  const [t,s]=TABS[id]||['',''];
+  document.getElementById('ptitle').textContent=t;
+  document.getElementById('psub').textContent=s;
+  document.getElementById('statsBar').style.display=id==='pCit'?'grid':'none';
+  if(id==='pCit')loadCitas();
 }
 
-// =====================================================
-// COMPRIMIR IMAGEN (evita QuotaExceededError)
-// =====================================================
-function compressImage(file, maxW, quality, cb) {
-  const reader = new FileReader();
-  reader.onload = e => {
-    const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      let w = img.width, h = img.height;
-      if (w > maxW) { h = Math.round(h * maxW / w); w = maxW; }
-      canvas.width = w; canvas.height = h;
-      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      cb(canvas.toDataURL('image/jpeg', quality));
-    };
-    img.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
+// ===================== TOAST =====================
+function toast(msg,err=false){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className=err?'error show':'show';
+  setTimeout(()=>t.classList.remove('show'),3000);
 }
 
-// =====================================================
-// TOAST
-// =====================================================
-function toast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2800);
+// ===================== GALERÍA =====================
+async function initGallery(){
+  await loadGallery();
+  const dz=document.getElementById('dz');
+  const inp=document.getElementById('galInput');
+  dz.addEventListener('click',()=>inp.click());
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('over');});
+  dz.addEventListener('dragleave',()=>dz.classList.remove('over'));
+  dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('over');Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')).forEach(uploadGal);});
+  inp.addEventListener('change',()=>{Array.from(inp.files).forEach(uploadGal);inp.value='';});
 }
 
-// =====================================================
-// GALERÍA
-// =====================================================
-function initGallery() {
-  renderGallery();
-  const dz  = document.getElementById('dz');
-  const inp = document.getElementById('galInput');
-  dz.addEventListener('click', () => inp.click());
-  dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('over'); });
-  dz.addEventListener('dragleave', () => dz.classList.remove('over'));
-  dz.addEventListener('drop', e => {
-    e.preventDefault(); dz.classList.remove('over');
-    Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')).forEach(readGal);
-  });
-  inp.addEventListener('change', () => {
-    Array.from(inp.files).forEach(readGal);
-    inp.value = '';
-  });
+async function uploadGal(file){
+  const prog=document.getElementById('galProgress');
+  prog.style.display='block';
+  const url=await uploadImage(file,'galeria');
+  if(!url){prog.style.display='none';toast('Error al subir la imagen',true);return;}
+  await sbPost('galeria',{src:url,name:file.name});
+  prog.style.display='none';
+  await loadGallery();
+  toast('Foto agregada 🌸');
 }
-function readGal(file) {
-  if(DB.getGallery().length>=5){toast('Máximo 5 fotos. Elimina una para subir otra 📸');return;}
-  compressImage(file, 400, 0.4, src => {
-    const g = DB.getGallery();
-    if(g.length>=5){toast('Máximo 5 fotos 📸');return;}
-    g.unshift({ id: Date.now(), src, name: file.name });
-    DB.setGallery(g);
-    renderGallery();
-    updateStorageMeter();
-    toast('Foto agregada 🌸');
-  });
-}
-function renderGallery() {
-  const imgs  = DB.getGallery();
-  const grid  = document.getElementById('galGrid');
-  const empty = document.getElementById('galEmpty');
-  if (!imgs.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
-  empty.style.display = 'none';
-  grid.innerHTML = imgs.map(img => `
+
+async function loadGallery(){
+  const imgs=await sbGet('galeria',{select:'*',order:'created_at.desc'});
+  const grid=document.getElementById('galGrid');
+  const empty=document.getElementById('galEmpty');
+  if(!imgs.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  grid.innerHTML=imgs.map(img=>`
     <div class="gcard">
       <img src="${img.src}" alt="">
-      <div class="gov"><button class="gdel" onclick="delGal(${img.id})">🗑️</button></div>
-      <p class="gname">${img.name || ''}</p>
+      <div class="gov"><button class="gdel" onclick="delGal(${img.id},'${img.src}')">🗑️</button></div>
+      <p class="gname">${img.name||''}</p>
     </div>`).join('');
 }
-function delGal(id) {
-  if (!confirm('¿Eliminar esta foto?')) return;
-  DB.setGallery(DB.getGallery().filter(x => x.id !== id));
-  renderGallery(); toast('Foto eliminada');
+
+async function delGal(id,src){
+  if(!confirm('¿Eliminar esta foto?'))return;
+  // Delete from storage
+  const path=src.split('/imagenes/')[1];
+  if(path) await fetch(`${SB_URL}/storage/v1/object/imagenes/${path}`,{method:'DELETE',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
+  await sbDelete('galeria',id);
+  await loadGallery();
+  toast('Foto eliminada');
 }
 
-// =====================================================
-// CATÁLOGO
-// =====================================================
-let pendingImg = null;
+// ===================== CATÁLOGO =====================
+let pendingCatUrl=null;
 
-function initCatalog() {
-  renderCatalog();
-  document.getElementById('catFile').addEventListener('change', function() {
-    const f = this.files[0]; if (!f) return;
-    compressImage(f, 400, 0.4, src => {
-      pendingImg = src;
-      document.getElementById('catImg').src = src;
-      document.getElementById('catPrev').style.display = 'block';
-    });
-    this.value = '';
+async function initCatalog(){
+  await loadCatalog();
+  document.getElementById('catFile').addEventListener('change',async function(){
+    const f=this.files[0];if(!f)return;
+    document.getElementById('catProgress').style.display='block';
+    pendingCatUrl=await uploadImage(f,'catalogo');
+    document.getElementById('catProgress').style.display='none';
+    if(pendingCatUrl){
+      document.getElementById('catImg').src=pendingCatUrl;
+      document.getElementById('catPrev').style.display='block';
+      toast('Imagen lista ✓');
+    } else toast('Error al subir imagen',true);
+    this.value='';
   });
 }
-function toggleCatForm() {
-  const f = document.getElementById('catForm');
-  const open = f.style.display === 'none' || !f.style.display;
-  f.style.display = open ? 'block' : 'none';
-  if (open) document.getElementById('catName').focus();
+
+function toggleCatForm(){
+  const f=document.getElementById('catForm');
+  const open=f.style.display==='none'||!f.style.display;
+  f.style.display=open?'block':'none';
+  if(open)document.getElementById('catName').focus();
 }
-function saveCat() {
-  const name = document.getElementById('catName').value.trim();
-  if (!name) { alert('El nombre es obligatorio ⚠️'); document.getElementById('catName').focus(); return; }
-  const c = DB.getCatalog();
-  c.unshift({
-    id:    Date.now(),
+
+async function saveCat(){
+  const name=document.getElementById('catName').value.trim();
+  if(!name){alert('El nombre es obligatorio ⚠️');return;}
+  const body={
     name,
-    type:  document.getElementById('catType').value,
-    price: document.getElementById('catPrice').value.trim(),
-    emoji: document.getElementById('catEmoji').value.trim() || '💅',
-    desc:  document.getElementById('catDesc').value.trim()  || 'Diseño exclusivo',
-    img:   pendingImg,
-  });
-  DB.setCatalog(c);
-  // reset
-  ['catName','catPrice','catDesc','catEmoji'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('catPrev').style.display = 'none';
-  document.getElementById('catForm').style.display = 'none';
-  pendingImg = null;
-  renderCatalog();
-  updateStorageMeter();
+    type:document.getElementById('catType').value,
+    price:document.getElementById('catPrice').value.trim(),
+    emoji:document.getElementById('catEmoji').value.trim()||'💅',
+    description:document.getElementById('catDesc').value.trim()||'Diseño exclusivo',
+    img:pendingCatUrl||null
+  };
+  const r=await sbPost('catalogo',body);
+  if(!r){toast('Error al guardar',true);return;}
+  ['catName','catPrice','catDesc','catEmoji'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('catPrev').style.display='none';
+  document.getElementById('catForm').style.display='none';
+  pendingCatUrl=null;
+  await loadCatalog();
   toast('¡Diseño guardado! 💅');
 }
-function renderCatalog() {
-  const items = DB.getCatalog();
-  const list  = document.getElementById('catList');
-  const empty = document.getElementById('catEmpty');
-  if (!items.length) { list.innerHTML = ''; empty.style.display = 'block'; return; }
-  empty.style.display = 'none';
-  const lbl = { acrilicas:'Acrílicas', gel:'Gel', nailart:'Nail Art' };
-  list.innerHTML = items.map(x => `
+
+async function loadCatalog(){
+  const items=await sbGet('catalogo',{select:'*',order:'created_at.desc'});
+  const list=document.getElementById('catList');
+  const empty=document.getElementById('catEmpty');
+  if(!items.length){list.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  const lbl={acrilicas:'Acrílicas',gel:'Gel',nailart:'Nail Art'};
+  list.innerHTML=items.map(x=>`
     <div class="crow">
-      <div class="cthumb">${x.img ? `<img src="${x.img}" alt="">` : x.emoji || '💅'}</div>
+      <div class="cthumb">${x.img?`<img src="${x.img}" alt="">`:x.emoji||'💅'}</div>
       <div class="cinfo">
         <strong>${x.name}</strong>
         <span class="ctag">${lbl[x.type]||x.type}</span>
-        <p>${x.desc}</p>
-        <span class="cprice">${x.price ? '$'+x.price : ''}</span>
+        <p>${x.description||''}</p>
+        <span class="cprice">${x.price?'$'+x.price:''}</span>
       </div>
-      <button class="btn dan sm" onclick="delCat(${x.id})">🗑️ Eliminar</button>
+      <button class="btn dan sm" onclick="delCat(${x.id},'${x.img||''}')">🗑️ Eliminar</button>
     </div>`).join('');
 }
-function delCat(id) {
-  if (!confirm('¿Eliminar este diseño?')) return;
-  DB.setCatalog(DB.getCatalog().filter(x => x.id !== id));
-  renderCatalog(); toast('Diseño eliminado');
+
+async function delCat(id,imgUrl){
+  if(!confirm('¿Eliminar este diseño?'))return;
+  if(imgUrl){const path=imgUrl.split('/imagenes/')[1];if(path)await fetch(`${SB_URL}/storage/v1/object/imagenes/${path}`,{method:'DELETE',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});}
+  await sbDelete('catalogo',id);
+  await loadCatalog();
+  toast('Diseño eliminado');
 }
 
-// =====================================================
-// SERVICIOS
-// =====================================================
-function initServices() { renderServices(); }
-function renderServices() {
-  document.getElementById('svcList').innerHTML = DB.getServices().map(s => `
+// ===================== SERVICIOS =====================
+async function initServices(){await loadServices();}
+
+async function loadServices(){
+  const svcs=await sbGet('servicios',{select:'*',order:'orden'});
+  document.getElementById('svcList').innerHTML=svcs.map(s=>`
     <div class="scard">
       <div class="shead">
-        <span class="sico">${s.icon}</span>
-        <div><strong>${s.name}</strong><div class="sprice">$${s.price} <em>${s.unit}</em></div></div>
+        <span class="sico">${s.icon||'💅'}</span>
+        <div>
+          <strong>${s.name}</strong>
+          <div class="sprice">$${s.price} <em>${s.unit||''}</em></div>
+        </div>
         <button class="btn sec sm" onclick="toggleSvc(${s.id})">✏️ Editar</button>
+        <button class="btn dan sm" onclick="delSvc(${s.id},'${s.img||''}')">🗑️</button>
       </div>
+      ${s.img?`<img src="${s.img}" style="width:100%;max-height:120px;object-fit:cover;border-radius:8px;margin-top:10px;" alt="">`:''}
       <div class="sedit" id="se${s.id}" style="display:none;">
         <div class="fr2">
-          <div class="fg"><label>Ícono</label><input type="text" id="si${s.id}" value="${s.icon}" maxlength="4" style="font-size:20px;text-align:center;"></div>
+          <div class="fg"><label>Ícono</label><input type="text" id="si${s.id}" value="${s.icon||''}" maxlength="4" style="font-size:20px;text-align:center;"></div>
           <div class="fg"><label>Nombre</label><input type="text" id="sn${s.id}" value="${s.name}"></div>
         </div>
         <div class="fr2">
           <div class="fg"><label>Precio ($)</label><input type="text" id="sp${s.id}" value="${s.price}"></div>
-          <div class="fg"><label>Unidad</label><input type="text" id="su${s.id}" value="${s.unit}"></div>
+          <div class="fg"><label>Unidad</label><input type="text" id="su${s.id}" value="${s.unit||''}"></div>
         </div>
-        <div class="fg"><label>Descripción</label><textarea id="sd${s.id}" rows="2">${s.desc}</textarea></div>
-        <div class="fg"><label>Características (una por línea)</label><textarea id="sf${s.id}" rows="3">${s.features.join('\n')}</textarea></div>
+        <div class="fg"><label>Descripción</label><textarea id="sd${s.id}" rows="2">${s.description||''}</textarea></div>
+        <div class="fg"><label>Características (una por línea)</label><textarea id="sf${s.id}" rows="3">${(s.features||[]).join('\n')}</textarea></div>
+        <div class="fg">
+          <label>Imagen del servicio (opcional)</label>
+          <label class="pick" style="margin-bottom:0;">📷 Cambiar imagen<input type="file" id="simg${s.id}" accept="image/*" style="display:none;" onchange="uploadSvcImg(${s.id},this)"></label>
+          <div class="upload-progress" id="svcprog${s.id}">⏳ Subiendo...</div>
+        </div>
         <div class="frow">
           <button class="btn pri" onclick="saveSvc(${s.id})">💾 Guardar</button>
           <button class="btn sec" onclick="toggleSvc(${s.id})">Cancelar</button>
-          <button class="btn dan" onclick="delSvc(${s.id})">🗑️ Eliminar</button>
         </div>
       </div>
     </div>`).join('');
 }
-function toggleSvc(id) {
-  const el = document.getElementById('se'+id);
-  el.style.display = (el.style.display==='none'||!el.style.display) ? 'block' : 'none';
-}
-function saveSvc(id) {
-  const svcs = DB.getServices();
-  const i = svcs.findIndex(s => s.id === id);
-  if (i < 0) return;
-  svcs[i] = { ...svcs[i],
-    icon:     document.getElementById('si'+id).value.trim() || svcs[i].icon,
-    name:     document.getElementById('sn'+id).value.trim(),
-    price:    document.getElementById('sp'+id).value.trim(),
-    unit:     document.getElementById('su'+id).value.trim(),
-    desc:     document.getElementById('sd'+id).value.trim(),
-    features: document.getElementById('sf'+id).value.trim().split('\n').filter(Boolean),
-  };
-  DB.setServices(svcs); renderServices(); toast('Servicio actualizado ✨');
-}
-function addSvc() {
-  const svcs = DB.getServices();
-  const nid  = Date.now();
-  svcs.push({ id:nid, icon:'💅', name:'Nuevo Servicio', desc:'Descripción', price:'0', unit:'/ sesión', features:['Característica 1'] });
-  DB.setServices(svcs); renderServices();
-  setTimeout(() => toggleSvc(nid), 60);
-}
-function delSvc(id) {
-  if (!confirm('¿Eliminar este servicio?')) return;
-  DB.setServices(DB.getServices().filter(s => s.id !== id));
-  renderServices(); toast('Servicio eliminado');
+
+function toggleSvc(id){
+  const el=document.getElementById('se'+id);
+  el.style.display=(el.style.display==='none'||!el.style.display)?'block':'none';
 }
 
-// =====================================================
-// CITAS
-// =====================================================
-function initCitas() { renderCitas(); }
-function renderCitas(filter='todas') {
-  let apts = DB.getAppointments();
-  if (filter !== 'todas') apts = apts.filter(a => (a.status||'nueva') === filter);
-  const list  = document.getElementById('citasList');
-  const empty = document.getElementById('citasEmpty');
-  if (!apts.length) { list.innerHTML = ''; empty.style.display = 'block'; return; }
-  empty.style.display = 'none';
-  list.innerHTML = apts.map(a => `
+async function uploadSvcImg(id,input){
+  const f=input.files[0];if(!f)return;
+  const prog=document.getElementById('svcprog'+id);
+  prog.style.display='block';
+  const url=await uploadImage(f,'servicios');
+  prog.style.display='none';
+  if(url){await sbPatch('servicios',id,{img:url});await loadServices();toast('Imagen actualizada ✓');}
+  else toast('Error al subir imagen',true);
+  input.value='';
+}
+
+async function saveSvc(id){
+  const body={
+    icon:document.getElementById('si'+id).value.trim(),
+    name:document.getElementById('sn'+id).value.trim(),
+    price:document.getElementById('sp'+id).value.trim(),
+    unit:document.getElementById('su'+id).value.trim(),
+    description:document.getElementById('sd'+id).value.trim(),
+    features:document.getElementById('sf'+id).value.trim().split('\n').filter(Boolean),
+  };
+  await sbPatch('servicios',id,body);
+  await loadServices();
+  toast('Servicio actualizado ✨');
+}
+
+async function addSvc(){
+  await sbPost('servicios',{icon:'💅',name:'Nuevo Servicio',description:'Descripción del servicio',price:'0',unit:'/ sesión',features:['Característica 1'],orden:99});
+  await loadServices();
+  // open last one
+  const svcs=await sbGet('servicios',{select:'id',order:'created_at.desc'});
+  if(svcs.length) setTimeout(()=>toggleSvc(svcs[0].id),100);
+}
+
+async function delSvc(id,imgUrl){
+  if(!confirm('¿Eliminar este servicio?'))return;
+  if(imgUrl){const path=imgUrl.split('/imagenes/')[1];if(path)await fetch(`${SB_URL}/storage/v1/object/imagenes/${path}`,{method:'DELETE',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});}
+  await sbDelete('servicios',id);
+  await loadServices();
+  toast('Servicio eliminado');
+}
+
+// ===================== CITAS =====================
+let currentFilter='todas';
+async function initCitas(){await loadCitas();}
+
+async function loadCitas(filter='todas'){
+  currentFilter=filter;
+  const all=await sbGet('citas',{select:'*',order:'created_at.desc'});
+  const apts=filter==='todas'?all:all.filter(a=>(a.status||'nueva')===filter);
+  const list=document.getElementById('citasList');
+  const empty=document.getElementById('citasEmpty');
+  // update stats
+  const nw=all.filter(a=>(a.status||'nueva')==='nueva').length;
+  document.getElementById('sTotal').textContent=all.length;
+  document.getElementById('sNew').textContent=nw;
+  document.getElementById('sConf').textContent=all.filter(a=>a.status==='confirmada').length;
+  document.getElementById('badgeCit').textContent=nw;
+  if(!apts.length){list.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  list.innerHTML=apts.map(a=>`
     <div class="acard ${a.status||'nueva'}">
       <div class="ahead">
         <div>
@@ -652,104 +650,62 @@ function renderCitas(filter='todas') {
         <span>📞 ${a.phone}</span><span>📅 ${a.date}</span>
         <span>⏰ ${a.time}</span><span>💅 ${a.service}</span>
       </div>
-      ${a.notes ? `<p class="anotes">📝 ${a.notes}</p>` : ''}
+      ${a.notes?`<p class="anotes">📝 ${a.notes}</p>`:''}
     </div>`).join('');
 }
-function filterCitas(btn, f) {
-  document.querySelectorAll('.aftab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active'); renderCitas(f);
+
+function filterCitas(btn,f){
+  document.querySelectorAll('.aftab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');loadCitas(f);
 }
-function confirmCita(id) {
-  DB.setAppointments(DB.getAppointments().map(a => a.id===id ? {...a,status:'confirmada'} : a));
-  renderCitas(); updateStats(); toast('Cita confirmada ✅');
+async function confirmCita(id){await sbPatch('citas',id,{status:'confirmada'});await loadCitas(currentFilter);toast('Cita confirmada ✅');}
+async function delCita(id){
+  if(!confirm('¿Eliminar esta cita?'))return;
+  await sbDelete('citas',id);await loadCitas(currentFilter);toast('Cita eliminada');
 }
-function delCita(id) {
-  if (!confirm('¿Eliminar esta cita?')) return;
-  DB.setAppointments(DB.getAppointments().filter(a => a.id !== id));
-  renderCitas(); updateStats(); toast('Cita eliminada');
-}
-function clearAllCitas() {
-  if (!confirm('¿Eliminar TODAS las citas?')) return;
-  DB.setAppointments([]); renderCitas(); updateStats(); toast('Citas eliminadas');
-}
-function updateStats() {
-  const apts = DB.getAppointments();
-  const nw   = apts.filter(a => (a.status||'nueva')==='nueva').length;
-  document.getElementById('sTotal').textContent   = apts.length;
-  document.getElementById('sNew').textContent     = nw;
-  document.getElementById('sConf').textContent    = apts.filter(a => a.status==='confirmada').length;
-  document.getElementById('badgeCit').textContent = nw;
+async function clearAllCitas(){
+  if(!confirm('¿Eliminar TODAS las citas?'))return;
+  await sbDeleteAll('citas');await loadCitas();toast('Citas eliminadas');
 }
 
-// =====================================================
-// NEGOCIO
-// =====================================================
-function initBiz() {
-  const b = DB.getBusiness();
-  document.getElementById('bName').value  = b.name      || '';
-  document.getElementById('bPhone').value = b.phone     || '';
-  document.getElementById('bTag').value   = b.tagline   || '';
-  document.getElementById('bIg').value    = b.instagram || '';
-  document.getElementById('bAddr').value  = b.address   || '';
-  document.getElementById('bStat1').value = b.stats?.clients  || '11+';
-  document.getElementById('bStat2').value = b.stats?.years    || '3+';
-  document.getElementById('bStat3').value = b.stats?.quality  || '100%';
+// ===================== NEGOCIO =====================
+let bizId=null;
+async function initBiz(){
+  const rows=await sbGet('negocio',{select:'*'});
+  const b=rows[0]||{};
+  bizId=b.id||null;
+  document.getElementById('bName').value=b.name||'';
+  document.getElementById('bPhone').value=b.phone||'';
+  document.getElementById('bTag').value=b.tagline||'';
+  document.getElementById('bIg').value=b.instagram||'';
+  document.getElementById('bAddr').value=b.address||'';
+  document.getElementById('bStat1').value=b.stat_clients||'11+';
+  document.getElementById('bStat2').value=b.stat_years||'1';
+  document.getElementById('bStat3').value=b.stat_quality||'100%';
 }
-function saveBiz() {
-  DB.setBusiness({
-    name:      document.getElementById('bName').value.trim(),
-    phone:     document.getElementById('bPhone').value.trim(),
-    tagline:   document.getElementById('bTag').value.trim(),
-    instagram: document.getElementById('bIg').value.trim(),
-    address:   document.getElementById('bAddr').value.trim(),
-    stats: {
-      clients: document.getElementById('bStat1').value.trim(),
-      years:   document.getElementById('bStat2').value.trim(),
-      quality: document.getElementById('bStat3').value.trim(),
-    }
-  });
+async function saveBiz(){
+  const body={
+    name:document.getElementById('bName').value.trim(),
+    phone:document.getElementById('bPhone').value.trim(),
+    tagline:document.getElementById('bTag').value.trim(),
+    instagram:document.getElementById('bIg').value.trim(),
+    address:document.getElementById('bAddr').value.trim(),
+    stat_clients:document.getElementById('bStat1').value.trim(),
+    stat_years:document.getElementById('bStat2').value.trim(),
+    stat_quality:document.getElementById('bStat3').value.trim(),
+  };
+  if(bizId) await sbPatch('negocio',bizId,body);
+  else await sbPost('negocio',body);
   toast('Información guardada 🌸');
 }
 
-function updateStorageMeter() {
-  try {
-    let total = 0;
-    for (let k in localStorage) {
-      if (localStorage.hasOwnProperty(k)) total += localStorage[k].length * 2;
-    }
-    const kb   = Math.round(total / 1024);
-    const pct  = Math.min(100, Math.round((total / (5 * 1024 * 1024)) * 100));
-    const el   = document.getElementById('storageUsed');
-    const bar  = document.getElementById('storageBar');
-    if (el)  el.textContent = kb < 1024 ? kb + ' KB' : (kb/1024).toFixed(1) + ' MB';
-    if (bar) {
-      bar.style.width = pct + '%';
-      bar.style.background = pct > 80 ? '#ef4444' : pct > 50 ? '#f59e0b' : '#22c55e';
-    }
-  } catch(e) {}
-}
-
-function clearStorage() {
-  if (!confirm('Esto eliminará TODAS las fotos de galería y catálogo para liberar espacio. ¿Continuar?')) return;
-  DB.setGallery([]);
-  DB.setCatalog([]);
-  renderGallery();
-  renderCatalog();
-  updateStorageMeter();
-  toast('Espacio liberado 🧹');
-}
-
-// =====================================================
-// INIT
-// =====================================================
-function initAll() {
+// ===================== INIT =====================
+async function initAll(){
   initGallery();
   initCatalog();
   initServices();
   initCitas();
   initBiz();
-  updateStats();
-  updateStorageMeter();
 }
 </script>
 </body>
